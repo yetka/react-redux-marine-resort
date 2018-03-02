@@ -1,12 +1,18 @@
 import React from 'react';
+import BookRoomButton from './BookRoomButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
   return (
-    <div>
-      <h1>Room: {props.name}</h1>
-      <h4>Number of Guests: {props.numberOfGuests}</h4>
-      <p>Description: {props.description}</p>
+    <div className="row">
+      <div className="col-md-8">
+        <h3>Room: {props.name}</h3>
+        <h5>Number of Guests: {props.numberOfGuests}</h5>
+        <p>Description: {props.description}</p>
+      </div>
+      <div className="col-md-4">
+        <BookRoomButton />
+      </div>
     </div>
   );
 }
