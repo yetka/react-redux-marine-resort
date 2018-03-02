@@ -13,9 +13,9 @@ function Admin(){
       </div>
       <div className="col-md-9">
         <Switch>
-          <Route path='/admin/guests-requests-list' render={()=><GuestsRequestsList />} />
+          <Route exact path='/admin/' render={()=><GuestsRequestsList />} />
           <Route path='/admin/rooms-to-edit' render={()=><RoomsToEdit />} />
-          <Route path='/admin/ReservationsToEdit' render={()=><ReservationsToEdit />} />
+          <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit />} />
         </Switch>
       </div>
     </div>
