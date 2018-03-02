@@ -1,8 +1,7 @@
 import React from 'react';
-import Header from './Header';
-import RoomsFilter from './RoomsFilter';
-import RoomsList from './RoomsList';
-import Reservation from './Reservation';
+import Admin from './Admin';
+import Guest from './Guest';
+import { Switch, Route } from 'react-router-dom';
 
 const masterRoomsList= {
   1: {
@@ -52,11 +51,10 @@ const masterRoomsList= {
 function App(){
   return (
     <div className="container">
-      <Header />
-      <RoomsFilter />
-      <RoomsList masterRoomsList={masterRoomsList}/>
-      <hr></hr>
-      <Reservation />
+      <Switch>
+        <Route exact path='/' render={()=><Guest masterRoomsList={masterRoomsList} />} />
+        <Route path='/admin' render={()=><Admin masterRoomsList={masterRoomsList} />} />
+      </Switch>
     </div>
   );
 }
