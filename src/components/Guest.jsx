@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import RoomsFilter from './RoomsFilter';
 import RoomsList from './RoomsList';
-import Reservation from './Reservation';
+import ReservationRequest from './ReservationRequest';
 import PropTypes from 'prop-types';
 
 function Guest(props){
@@ -12,7 +12,7 @@ function Guest(props){
       <RoomsFilter />
       <RoomsList masterRoomsList={props.masterRoomsList}/>
       <hr></hr>
-      <Reservation />
+      <ReservationRequest />
     </div>
   );
 }
