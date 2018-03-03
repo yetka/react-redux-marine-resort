@@ -1,11 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import ReservationsToEditLinks from './ReservationsToEditLinks';
+import ReservationsForRoomList from './ReservationsForRoomList';
 
-function ReservationsToEdit(){
+function ReservationsToEdit(props){
   return (
-    <div>
-      <p>Reservations to edit</p>
+    <div className="row">
+      <div className="col-md-3">
+        <ReservationsToEditLinks />
+      </div>
+      <div className="col-md-9">
+        <ReservationsForRoomList />
+      </div>
     </div>
   );
 }
+
+ReservationsToEdit.propTypes = {
+  masterRoomsList: PropTypes.object
+};
 
 export default ReservationsToEdit;
