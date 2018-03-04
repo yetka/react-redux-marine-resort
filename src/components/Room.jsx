@@ -1,5 +1,6 @@
 import React from 'react';
 import BookRoomButton from './BookRoomButton';
+import NotAvailableButton from './NotAvailableButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
@@ -12,6 +13,7 @@ function Room(props){
       </div>
       <div className="col-md-4">
         <BookRoomButton />
+        <NotAvailableButton />
       </div>
     </div>
   );
