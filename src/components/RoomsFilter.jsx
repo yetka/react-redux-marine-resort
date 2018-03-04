@@ -3,17 +3,13 @@ import RoomsFilterForm from './RoomsFilterForm';
 
 function RoomsFilter(){
   return (
-    <div>
-      <hr></hr>
-      <br></br>
-      <div>
+    <div className="row">
+      <div className="col-md-2">
         <h4>Book Now!</h4>
       </div>
-      <div>
+      <div className="col-md-10">
         <RoomsFilterForm />
       </div>
-      <br></br>
-      <hr></hr>
     </div>
   );
 }

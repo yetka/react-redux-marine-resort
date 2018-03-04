@@ -9,7 +9,10 @@ function Guest(props){
   return (
     <div className="container">
       <Header />
+      <br></br>
       <RoomsFilter />
+      <br></br>
+      <hr></hr>
       <RoomsList masterRoomsList={props.masterRoomsList}/>
       <hr></hr>
       <ReservationRequest />

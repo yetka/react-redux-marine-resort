@@ -1,5 +1,5 @@
 import React from 'react';
-import Reservation from './Reservation'
+import Reservation from './Reservation';
 
 function ReservationsForRoomList(){
   return (

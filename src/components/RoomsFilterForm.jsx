@@ -4,28 +4,35 @@ function RoomsFilterForm(){
   return (
     <div>
       <form>
-        <laber>Number of Guests: </laber>
-        <label> 1 </label>
-        <input type="radio" name="numberOfGuests" value="1" />
-        <label> 2 </label>
-        <input type="radio" name="numberOfGuests" value="2" />
-        <label> 3 </label>
-        <input type="radio" name="numberOfGuests" value="3" />
-        <label> 4 </label>
-        <input type="radio" name="numberOfGuests" value="4" />
-        <label> 5 </label>
-        <input type="radio" name="numberOfGuests" value="5" />
-        <label> From: </label>
-        <input
-          type='date'
-          id='fromDate'
-          placeholder='from date'/>
-        <label> To: </label>
-        <input
-          type='date'
-          id='toDate'
-          placeholder='to date'/>
-        <button type='submit'>Filter!</button>
+        <div className="row">
+          <div className="col-md-3">
+            <laber>Number of Guests: </laber>
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          <div className="col-md-4">
+            <label> From: </label>
+            <input
+              type='date'
+              id='fromDate'
+              placeholder='from date'/>
+          </div>
+          <div className="col-md-4">
+            <label> To: </label>
+            <input
+              type='date'
+              id='toDate'
+              placeholder='to date'/>
+          </div>
+          <div className="col-md-1">
+            <button type='submit'>Filter!</button>
+          </div>
+        </div>
       </form>
     </div>
   );
