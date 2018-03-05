@@ -9,7 +9,6 @@ function Room(props){
   var filterStartDay = new Date(props.roomsFilter.startDay);
   var filterEndDay = new Date(props.roomsFilter.lastDay);
   var currentlyDispayedButton = null;
-
   if (props.numberOfGuests == filterNumberOfGuests) {
     var reservations = [];
     Object.keys(props.reservations).map(function(reservationId) {
@@ -21,17 +20,17 @@ function Room(props){
       } else {
         return reservations.push(false);
       }
-    })
+    });
     if (reservations.includes(false)) {
-      currentlyDispayedButton = <NotAvailableButton />
+      currentlyDispayedButton = <NotAvailableButton />;
     } else {
-      currentlyDispayedButton = <BookRoomButton />
+      currentlyDispayedButton = <BookRoomButton />;
     }
   } else {
-    currentlyDispayedButton = <NotAvailableButton />
+    currentlyDispayedButton = <NotAvailableButton />;
   }
   return (
-    <div className="row">
+    <div style={{backgroundColor: 'lightGray', margin: '10px', padding: '10px'}} className="row">
       <div className="col-md-8">
         <h3>Room: {props.name}</h3>
         <h5>Number of Guests: {props.numberOfGuests}</h5>
@@ -47,7 +46,10 @@ function Room(props){
 Room.propTypes = {
   name: PropTypes.string,
   description: PropTypes.string,
-  numberOfGuests: PropTypes.number
+  numberOfGuests: PropTypes.number,
+  reservations: PropTypes.object,
+  roomsFilter: PropTypes.object,
+
 };
 
 export default Room;
