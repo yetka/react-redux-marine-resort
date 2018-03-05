@@ -12,42 +12,42 @@ class App extends React.Component {
           name: 'Room1',
           description: 'room description here',
           numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '1'
         },
         2: {
           name: 'Room2',
           description: 'room description here',
           numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '2'
         },
         3: {
           name: 'Room3',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 3,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '3'
         },
         4: {
           name: 'Room4',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 3,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '4'
         },
         5: {
           name: 'Room5',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 4,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '5'
         },
         6: {
           name: 'Room6',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '07/16/2018': {id: '07/16/2018', lastDay: '08/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 4,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '6'
         }
       },
@@ -55,26 +55,39 @@ class App extends React.Component {
         1: {
           name: 'Room5',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '08/16/2018': {id: '08/16/2018', lastDay: '09/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 5,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-29', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '5'
         },
         2: {
           name: 'Room1',
           description: 'room description here',
-          numberOfGuests: 2,
-          reservations: {'07/01/2018': {id: '07/01/2018', lastDay: '07/15/2018', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '10/16/2018': {id: '10/16/2018', lastDay: '11/15/2018', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          numberOfGuests: 5,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-09-02': {id: '2018-09-02', lastDay: '2018-09-22', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '6'
         }
-      }
-    }
+      },
+      roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
+    };
+    this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
+  }
+
+  handleNewFilterCreation(newFilter){
+    console.log(newFilter.numberOfGuests);
+    var newRoomsFilter = {};
+    newRoomsFilter['numberOfGuests'] = newFilter.numberOfGuests;
+    newRoomsFilter['startDay'] = newFilter.fromDate;
+    newRoomsFilter['lastDay'] = newFilter.toDate;
+    this.setState({roomsFilter: newRoomsFilter});
   }
 
   render() {
     return (
       <div className="container">
         <Switch>
-          <Route exact path='/' render={()=><Guest masterRoomsList={this.state.masterRoomsList} />} />
+          <Route exact path='/' render={()=><Guest masterRoomsList={this.state.masterRoomsList}
+            onNewFilterCreation={this.handleNewFilterCreation}
+            roomsFilter={this.state.roomsFilter} />} />
           <Route path='/admin' render={()=><Admin masterRoomsList={this.state.masterRoomsList} />} />
         </Switch>
       </div>

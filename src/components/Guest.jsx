@@ -6,14 +6,15 @@ import ReservationRequest from './ReservationRequest';
 import PropTypes from 'prop-types';
 
 function Guest(props){
+  console.log(props);
   return (
     <div className="container">
       <Header />
       <br></br>
-      <RoomsFilter />
+      <RoomsFilter onNewFilterCreation={props.onNewFilterCreation}/>
       <br></br>
       <hr></hr>
-      <RoomsList masterRoomsList={props.masterRoomsList}/>
+      <RoomsList masterRoomsList={props.masterRoomsList} roomsFilter={props.roomsFilter}/>
       <hr></hr>
       <ReservationRequest />
     </div>
@@ -21,7 +22,9 @@ function Guest(props){
 }
 
 Guest.propTypes = {
-  masterRoomsList: PropTypes.object
+  masterRoomsList: PropTypes.object,
+  onNewFilterCreation: PropTypes.func,
+  roomsFilter: PropTypes.object
 };
 
 export default Guest;

@@ -4,7 +4,6 @@ import ReservationsToEditLinks from './ReservationsToEditLinks';
 import ReservationsForRoomList from './ReservationsForRoomList';
 
 function ReservationsToEdit(props){
-  console.log(props);
   return (
     <div className="row">
       <div className="col-md-3">

@@ -4,7 +4,6 @@ import DeleteReservationButton from './DeleteReservationButton';
 import PropTypes from 'prop-types';
 
 function Reservation(props){
-  console.log(props);
   return (
     <div className="row">
       <div className="col-md-6">
@@ -19,6 +18,8 @@ function Reservation(props){
 }
 
 Reservation.propTypes = {
+  startDay: PropTypes.string,
+  lastDay: PropTypes.string,
   lastName: PropTypes.string,
 };
 
