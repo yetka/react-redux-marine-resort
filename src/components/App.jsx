@@ -19,7 +19,7 @@ class App extends React.Component {
           name: 'Room2',
           description: 'room description here',
           numberOfGuests: 2,
-          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          reservations: {'2018-03-20': {id: '2018-03-20', lastDay: '2018-03-29', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '2'
         },
         3: {
