@@ -4,6 +4,32 @@ import NotAvailableButton from './NotAvailableButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
+  console.log(props);
+  var filterNumberOfGuests = props.roomsFilter.numberOfGuests;
+  var filterStartDay = new Date(props.roomsFilter.startDay);
+  var filterEndDay = new Date(props.roomsFilter.lastDay);
+  var currentlyDispayedButton = null;
+
+  if (props.numberOfGuests == filterNumberOfGuests) {
+    var reservations = [];
+    Object.keys(props.reservations).map(function(reservationId) {
+      var reservation = props.reservations[reservationId];
+      var reservationStartDay = new Date(reservation.id);
+      var reservationEndDay = new Date(reservation.lastDay);
+      if (((filterStartDay < reservationStartDay) && (filterEndDay < reservationEndDay)) || ((filterStartDay > reservationStartDay) && (filterEndDay > reservationEndDay))) {
+        return reservations.push(true);
+      } else {
+        return reservations.push(false);
+      }
+    })
+    if (reservations.includes(false)) {
+      currentlyDispayedButton = <NotAvailableButton />
+    } else {
+      currentlyDispayedButton = <BookRoomButton />
+    }
+  } else {
+    currentlyDispayedButton = <NotAvailableButton />
+  }
   return (
     <div className="row">
       <div className="col-md-8">
@@ -12,8 +38,7 @@ function Room(props){
         <p>Description: {props.description}</p>
       </div>
       <div className="col-md-4">
-        <BookRoomButton />
-        <NotAvailableButton />
+        {currentlyDispayedButton}
       </div>
     </div>
   );
