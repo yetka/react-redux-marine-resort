@@ -9,7 +9,11 @@ function RoomsFilterForm(props){
 
   function handleRoomsFilterFormSubmission(event) {
     event.preventDefault();
-    props.onNewFilterCreation({numberOfGuests: _numberOfGuests.value, fromDate: _fromDate.value, toDate: _toDate.value});
+    if ((new Date(_fromDate.value)) > (new Date(_toDate.value))) {
+      alert('Date input is invalid, please try again!');
+    } else {
+      props.onNewFilterCreation({numberOfGuests: _numberOfGuests.value, fromDate: _fromDate.value, toDate: _toDate.value});
+    }  
   }
 
   return (
