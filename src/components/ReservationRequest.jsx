@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function ReservationRequest(){
+function ReservationRequest(props){
+  var start = new Date(props.startDay);
+  var end = new Date(props.endDay);
+  var numberOfDays = ((end - start) / (1000*60*60*24)) + 1;
+  var price;
+
+
+
+
   return (
     <div>
       <h2>Your Reservation</h2>
-      <h4>Room:</h4>
-      <h4>Date:</h4>
-      <h4>Price:</h4>
+      <h6>From: {props.startDay} to: {props.endDay}</h6>
+      <h5>Total Price: $ {price}</h5>
       <form>
         <input
           type='text'
@@ -25,5 +33,10 @@ function ReservationRequest(){
     </div>
   );
 }
+
+ReservationRequest.propTypes = {
+  startDay: PropTypes.string,
+  endDay: PropTypes.string
+};
 
 export default ReservationRequest;

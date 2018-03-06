@@ -70,15 +70,19 @@ class App extends React.Component {
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
+    this.handleBookRoomButtonClick=this.handleBookRoomButtonClick.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
-    console.log(newFilter.numberOfGuests);
     var newRoomsFilter = {};
     newRoomsFilter['numberOfGuests'] = newFilter.numberOfGuests;
     newRoomsFilter['startDay'] = newFilter.fromDate;
     newRoomsFilter['lastDay'] = newFilter.toDate;
     this.setState({roomsFilter: newRoomsFilter});
+  }
+
+  handleBookRoomButtonClick(roomId, startDay, endDay) {
+    
   }
 
   render() {
@@ -87,7 +91,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' render={()=><Guest masterRoomsList={this.state.masterRoomsList}
             onNewFilterCreation={this.handleNewFilterCreation}
-            roomsFilter={this.state.roomsFilter} />} />
+            roomsFilter={this.state.roomsFilter} onBookRoomButtonClick={this.handleBookRoomButtonClick} />} />
           <Route path='/admin' render={()=><Admin masterRoomsList={this.state.masterRoomsList} />} />
         </Switch>
       </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import Header from './Header';
 import RoomsFilter from './RoomsFilter';
 import RoomsList from './RoomsList';
-import ReservationRequest from './ReservationRequest';
 import PropTypes from 'prop-types';
 
 function Guest(props){
@@ -14,9 +13,9 @@ function Guest(props){
       <RoomsFilter onNewFilterCreation={props.onNewFilterCreation}/>
       <br></br>
       <hr></hr>
-      <RoomsList masterRoomsList={props.masterRoomsList} roomsFilter={props.roomsFilter}/>
-      <hr></hr>
-      <ReservationRequest />
+      <RoomsList
+        masterRoomsList={props.masterRoomsList}
+        roomsFilter={props.roomsFilter} />
     </div>
   );
 }
