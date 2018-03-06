@@ -62,6 +62,10 @@ function ReservationRequest(props){
     props.onNewReservationRequestCreation({firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, startDay, endDay, roomId, totalPrice, id: v4()});
   }
 
+  function handleConfirmReservationButtonClick() {
+    props.onConfirmReservationButtonClick();
+  }
+
   return (
     <div>
       <h2>Your Reservation</h2>
@@ -83,7 +87,7 @@ function ReservationRequest(props){
           id='phone'
           placeholder='phone number'
           ref={(input) => {_phone = input;}}/><br />
-        <button type='submit'>Confirm!</button>
+        <button onClick={() => {handleConfirmReservationButtonClick();}} type='submit'>Confirm!</button>
       </form>
     </div>
   );
@@ -95,7 +99,8 @@ ReservationRequest.propTypes = {
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
   roomId: PropTypes.string,
-  onNewReservationRequestCreation: PropTypes.func
+  onNewReservationRequestCreation: PropTypes.func,
+  onConfirmReservationButtonClick: PropTypes.func
 };
 
 export default ReservationRequest;

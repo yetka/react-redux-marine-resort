@@ -26,6 +26,6 @@ function GuestsRequestsList(props){
 
 GuestsRequestsList.propTypes = {
   reservationsRequestsList: PropTypes.object
-}
+};
 
 export default GuestsRequestsList;

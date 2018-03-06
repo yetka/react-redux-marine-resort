@@ -9,12 +9,19 @@ class BookRoomButton extends React.Component {
       formVisibleOnPage: false
     };
     this.handleBookRoomButtonClick=this.handleBookRoomButtonClick.bind(this);
+    this.handleConfirmReservationButtonClick=this.handleConfirmReservationButtonClick.bind(this);
   }
 
 
   handleBookRoomButtonClick() {
     this.setState({formVisibleOnPage: true});
   }
+
+  handleConfirmReservationButtonClick() {
+    this.setState({formVisibleOnPage: false});
+  }
+
+
   render() {
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage) {
@@ -24,7 +31,8 @@ class BookRoomButton extends React.Component {
         endDay={this.props.endDay}
         seasonPrice={this.props.seasonPrice}
         offSeasonPrice={this.props.offSeasonPrice}
-        onNewReservationRequestCreation={this.props.onNewReservationRequestCreation}/>;
+        onNewReservationRequestCreation={this.props.onNewReservationRequestCreation}
+        onConfirmReservationButtonClick={this.handleConfirmReservationButtonClick}/>;
     } else {
       currentlyVisibleContent =
         <div>

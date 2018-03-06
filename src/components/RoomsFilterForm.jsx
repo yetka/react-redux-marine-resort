@@ -19,8 +19,7 @@ function RoomsFilterForm(props){
           <div className="col-md-3">
             <label>Number of Guests: </label>
             <select ref={(select) => {_numberOfGuests = select;}}>
-              <option value="1">1</option>
-              <option value="2">2</option>
+              <option value="2">1-2</option>
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>

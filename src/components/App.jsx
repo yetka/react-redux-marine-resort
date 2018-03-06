@@ -163,8 +163,8 @@ class App extends React.Component {
             roomsFilter={this.state.roomsFilter}
             onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
           <Route path='/admin' render={()=><Admin
-              masterRoomsList={this.state.masterRoomsList}
-              reservationsRequestsList={this.state.reservationsRequestsList} />} />
+            masterRoomsList={this.state.masterRoomsList}
+            reservationsRequestsList={this.state.reservationsRequestsList} />} />
         </Switch>
       </div>
     );
