@@ -24,7 +24,12 @@ function Room(props){
     if (reservations.includes(false)) {
       currentlyDispayedButton = <NotAvailableButton />;
     } else {
-      currentlyDispayedButton = <BookRoomButton roomName={props.name} startDay={props.roomsFilter.startDay} endDay={props.roomsFilter.lastDay} />;
+      currentlyDispayedButton = <BookRoomButton
+        startDay={props.roomsFilter.startDay}
+        endDay={props.roomsFilter.lastDay}
+        seasonPrice={props.seasonPrice}
+        offSeasonPrice={props.offSeasonPrice}
+        id={props.id} />;
     }
   } else {
     currentlyDispayedButton = <NotAvailableButton />;
@@ -49,6 +54,8 @@ Room.propTypes = {
   description: PropTypes.string,
   numberOfGuests: PropTypes.number,
   reservations: PropTypes.object,
+  seasonPrice: PropTypes.number,
+  offSeasonPrice: PropTypes.number,
   roomsFilter: PropTypes.object
 };
 

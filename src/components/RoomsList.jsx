@@ -12,6 +12,8 @@ function RoomsList(props){
             name={room.name}
             description={room.description}
             numberOfGuests={room.numberOfGuests}
+            seasonPrice={room.seasonPrice}
+            offSeasonPrice={room.offSeasonPrice}
             reservations={room.reservations}
             id={room.id}
             key={room.id}

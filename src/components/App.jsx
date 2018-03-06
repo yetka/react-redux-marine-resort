@@ -12,6 +12,8 @@ class App extends React.Component {
           name: 'Room1',
           description: 'room description here',
           numberOfGuests: 2,
+          seasonPrice: 100,
+          offSeasonPrice: 80,
           reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '1'
         },
@@ -19,6 +21,8 @@ class App extends React.Component {
           name: 'Room2',
           description: 'room description here',
           numberOfGuests: 2,
+          seasonPrice: 100,
+          offSeasonPrice: 80,
           reservations: {'2018-03-20': {id: '2018-03-20', lastDay: '2018-03-29', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '2'
         },
@@ -26,6 +30,8 @@ class App extends React.Component {
           name: 'Room3',
           description: 'room description here',
           numberOfGuests: 3,
+          seasonPrice: 130,
+          offSeasonPrice: 100,
           reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '3'
         },
@@ -33,13 +39,17 @@ class App extends React.Component {
           name: 'Room4',
           description: 'room description here',
           numberOfGuests: 3,
+          seasonPrice: 130,
+          offSeasonPrice: 100,
           reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '4'
         },
         5: {
           name: 'Room5',
           description: 'room description here',
-          numberOfGuests: 4,
+          numberOfGuests: 3,
+          seasonPrice: 130,
+          offSeasonPrice: 100,
           reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '5'
         },
@@ -47,8 +57,46 @@ class App extends React.Component {
           name: 'Room6',
           description: 'room description here',
           numberOfGuests: 4,
+          seasonPrice: 150,
+          offSeasonPrice: 120,
           reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
           id: '6'
+        },
+        7: {
+          name: 'Room7',
+          description: 'room description here',
+          numberOfGuests: 4,
+          seasonPrice: 150,
+          offSeasonPrice: 120,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          id: '7'
+        },
+        8: {
+          name: 'Room8',
+          description: 'room description here',
+          numberOfGuests: 4,
+          seasonPrice: 150,
+          offSeasonPrice: 120,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          id: '8'
+        },
+        9: {
+          name: 'Room9',
+          description: 'room description here',
+          numberOfGuests: 5,
+          seasonPrice: 200,
+          offSeasonPrice: 150,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          id: '9'
+        },
+        10: {
+          name: 'Room10',
+          description: 'room description here',
+          numberOfGuests: 5,
+          seasonPrice: 200,
+          offSeasonPrice: 150,
+          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+          id: '10'
         }
       },
       reservationsRequestsList: {
@@ -82,7 +130,7 @@ class App extends React.Component {
   }
 
   handleBookRoomButtonClick(roomId, startDay, endDay) {
-    
+
   }
 
   render() {
