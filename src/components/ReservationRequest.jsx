@@ -49,9 +49,6 @@ function ReservationRequest(props){
     totalPrice = (numberOfDaysInSeason * seasonPrice) + (numberOfDaysOffSeason * offSeasonPrice);
   }
 
-
-
-
   return (
     <div>
       <h2>Your Reservation</h2>
@@ -78,7 +75,9 @@ function ReservationRequest(props){
 
 ReservationRequest.propTypes = {
   startDay: PropTypes.string,
-  endDay: PropTypes.string
+  endDay: PropTypes.string,
+  seasonPrice: PropTypes.number,
+  offSeasonPrice: PropTypes.number
 };
 
 export default ReservationRequest;

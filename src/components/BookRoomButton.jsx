@@ -13,7 +13,7 @@ class BookRoomButton extends React.Component {
 
 
   handleBookRoomButtonClick() {
-    this.setState({formVisibleOnPage: true})
+    this.setState({formVisibleOnPage: true});
   }
   render() {
     let currentlyVisibleContent = null;
@@ -23,12 +23,12 @@ class BookRoomButton extends React.Component {
         startDay={this.props.startDay}
         endDay={this.props.endDay}
         seasonPrice={this.props.seasonPrice}
-        offSeasonPrice={this.props.offSeasonPrice}/>
+        offSeasonPrice={this.props.offSeasonPrice}/>;
     } else {
       currentlyVisibleContent =
-      <div>
-        <button onClick={() => {this.handleBookRoomButtonClick();}}>Book!</button>
-      </div>
+        <div>
+          <button onClick={() => {this.handleBookRoomButtonClick();}}>Book!</button>
+        </div>;
     }
     return (
       <div>
@@ -43,7 +43,8 @@ BookRoomButton.propTypes = {
   startDay: PropTypes.string,
   endDay: PropTypes.string,
   seasonPrice: PropTypes.number,
-  offSeasonPrice: PropTypes.number
+  offSeasonPrice: PropTypes.number,
+  roomId: PropTypes.string
 };
 
 export default BookRoomButton;
