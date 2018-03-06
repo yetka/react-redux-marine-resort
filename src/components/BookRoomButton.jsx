@@ -45,7 +45,7 @@ BookRoomButton.propTypes = {
   endDay: PropTypes.string,
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
-  roomId: PropTypes.string,
+  id: PropTypes.string,
   onNewReservationRequestCreation: PropTypes.func
 };
 

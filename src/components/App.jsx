@@ -158,10 +158,10 @@ class App extends React.Component {
       <div className="container">
         <Switch>
           <Route exact path='/' render={()=><Guest
-              masterRoomsList={this.state.masterRoomsList}
-              onNewFilterCreation={this.handleNewFilterCreation}
-              roomsFilter={this.state.roomsFilter}
-              onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
+            masterRoomsList={this.state.masterRoomsList}
+            onNewFilterCreation={this.handleNewFilterCreation}
+            roomsFilter={this.state.roomsFilter}
+            onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
           <Route path='/admin' render={()=><Admin masterRoomsList={this.state.masterRoomsList} />} />
         </Switch>
       </div>
