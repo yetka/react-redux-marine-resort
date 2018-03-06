@@ -162,7 +162,9 @@ class App extends React.Component {
             onNewFilterCreation={this.handleNewFilterCreation}
             roomsFilter={this.state.roomsFilter}
             onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
-          <Route path='/admin' render={()=><Admin masterRoomsList={this.state.masterRoomsList} />} />
+          <Route path='/admin' render={()=><Admin
+              masterRoomsList={this.state.masterRoomsList}
+              reservationsRequestsList={this.state.reservationsRequestsList} />} />
         </Switch>
       </div>
     );
