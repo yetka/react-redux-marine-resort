@@ -29,7 +29,8 @@ function Room(props){
         endDay={props.roomsFilter.lastDay}
         seasonPrice={props.seasonPrice}
         offSeasonPrice={props.offSeasonPrice}
-        id={props.id} />;
+        id={props.id}
+        onNewReservationRequestCreation={props.onNewReservationRequestCreation} />;
     }
   } else {
     currentlyDispayedButton = <NotAvailableButton />;
@@ -56,7 +57,8 @@ Room.propTypes = {
   reservations: PropTypes.object,
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
-  roomsFilter: PropTypes.object
+  roomsFilter: PropTypes.object,
+  onNewReservationRequestCreation: PropTypes.func
 };
 
 export default Room;

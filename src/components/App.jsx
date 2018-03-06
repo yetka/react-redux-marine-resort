@@ -101,24 +101,30 @@ class App extends React.Component {
       },
       reservationsRequestsList: {
         1: {
-          name: 'Room5',
-          description: 'room description here',
-          numberOfGuests: 5,
-          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-05-02': {id: '2018-05-02', lastDay: '2018-05-29', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
-          id: '5'
+          roomId: '5',
+          firstName: 'John',
+          lastName: 'Smith',
+          phone: '206 123 4567',
+          startDay: '2018-03-02',
+          endDay: '2018-03-03',
+          totalPrice: 300,
+          id: '1'
         },
         2: {
-          name: 'Room1',
-          description: 'room description here',
-          numberOfGuests: 5,
-          reservations: {'2018-03-02': {id: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2018-09-02': {id: '2018-09-02', lastDay: '2018-09-22', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
-          id: '6'
+          roomId: '2',
+          firstName: 'Matilda',
+          lastName: 'Johnson',
+          phone: '206 321 4567',
+          startDay: '2018-07-02',
+          endDay: '2018-07-03',
+          totalPrice: 200,
+          id: '2'
         }
       },
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
-    this.handleBookRoomButtonClick=this.handleBookRoomButtonClick.bind(this);
+    this.handleNewReservationRequestCreation=this.handleNewReservationRequestCreation.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -129,17 +135,33 @@ class App extends React.Component {
     this.setState({roomsFilter: newRoomsFilter});
   }
 
-  handleBookRoomButtonClick(roomId, startDay, endDay) {
+  handleNewReservationRequestCreation(reservation) {
+    var newReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
+    var newReservationsRequests = {};
+    newReservationsRequests['firstName'] = reservation.firstName;
+    newReservationsRequests['lastName'] = reservation.lastName;
+    newReservationsRequests['phone'] = reservation.phone;
+    newReservationsRequests['startDay'] = reservation.startDay;
+    newReservationsRequests['endDay'] = reservation.endDay;
+    newReservationsRequests['roomId'] = reservation.roomId;
+    newReservationsRequests['totalPrice'] = reservation.totalPrice;
+    newReservationsRequests['id'] = reservation.id;
 
+    newReservationsRequestsList[reservation.id] = newReservationsRequests;
+
+    this.setState({reservationsRequestsList: newReservationsRequestsList});
+    console.log(newReservationsRequestsList);
   }
 
   render() {
     return (
       <div className="container">
         <Switch>
-          <Route exact path='/' render={()=><Guest masterRoomsList={this.state.masterRoomsList}
-            onNewFilterCreation={this.handleNewFilterCreation}
-            roomsFilter={this.state.roomsFilter} onBookRoomButtonClick={this.handleBookRoomButtonClick} />} />
+          <Route exact path='/' render={()=><Guest
+              masterRoomsList={this.state.masterRoomsList}
+              onNewFilterCreation={this.handleNewFilterCreation}
+              roomsFilter={this.state.roomsFilter}
+              onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
           <Route path='/admin' render={()=><Admin masterRoomsList={this.state.masterRoomsList} />} />
         </Switch>
       </div>

@@ -19,11 +19,12 @@ class BookRoomButton extends React.Component {
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage) {
       currentlyVisibleContent = <ReservationRequest
-        roomId={this.props.roomId}
+        roomId={this.props.id}
         startDay={this.props.startDay}
         endDay={this.props.endDay}
         seasonPrice={this.props.seasonPrice}
-        offSeasonPrice={this.props.offSeasonPrice}/>;
+        offSeasonPrice={this.props.offSeasonPrice}
+        onNewReservationRequestCreation={this.props.onNewReservationRequestCreation}/>;
     } else {
       currentlyVisibleContent =
         <div>
@@ -44,7 +45,8 @@ BookRoomButton.propTypes = {
   endDay: PropTypes.string,
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
-  roomId: PropTypes.string
+  roomId: PropTypes.string,
+  onNewReservationRequestCreation: PropTypes.func
 };
 
 export default BookRoomButton;

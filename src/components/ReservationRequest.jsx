@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function ReservationRequest(props){
   var start = new Date(props.startDay);
@@ -49,24 +50,39 @@ function ReservationRequest(props){
     totalPrice = (numberOfDaysInSeason * seasonPrice) + (numberOfDaysOffSeason * offSeasonPrice);
   }
 
+  let _firstName = null;
+  let _lastName = null;
+  let _phone = null;
+
+  function handleReservationRequestSubmission(event) {
+    event.preventDefault();
+    var startDay = props.startDay;
+    var endDay = props.endDay;
+    var roomId = props.roomId;
+    props.onNewReservationRequestCreation({firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, startDay, endDay, roomId, totalPrice, id: v4()});
+  }
+
   return (
     <div>
       <h2>Your Reservation</h2>
       <h6>From: {props.startDay} to: {props.endDay}</h6>
       <h5>Total Price: $ {totalPrice}</h5>
-      <form>
+      <form onSubmit={handleReservationRequestSubmission}>
         <input
           type='text'
           id='firstName'
-          placeholder='first name'/><br />
+          placeholder='first name'
+          ref={(input) => {_firstName = input;}}/><br />
         <input
           type='text'
           id='lastName'
-          placeholder='last name'/><br />
+          placeholder='last name'
+          ref={(input) => {_lastName = input;}}/><br />
         <input
           type='text'
           id='phone'
-          placeholder='phone number'/><br />
+          placeholder='phone number'
+          ref={(input) => {_phone = input;}}/><br />
         <button type='submit'>Confirm!</button>
       </form>
     </div>
@@ -77,7 +93,9 @@ ReservationRequest.propTypes = {
   startDay: PropTypes.string,
   endDay: PropTypes.string,
   seasonPrice: PropTypes.number,
-  offSeasonPrice: PropTypes.number
+  offSeasonPrice: PropTypes.number,
+  roomId: PropTypes.string,
+  onNewReservationRequestCreation: PropTypes.func
 };
 
 export default ReservationRequest;
