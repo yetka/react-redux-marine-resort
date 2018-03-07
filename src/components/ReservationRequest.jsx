@@ -60,9 +60,6 @@ function ReservationRequest(props){
     var endDay = props.endDay;
     var roomId = props.roomId;
     props.onNewReservationRequestCreation({firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, startDay, endDay, roomId, totalPrice, id: v4()});
-  }
-
-  function handleConfirmReservationButtonClick() {
     props.onConfirmReservationButtonClick();
   }
 
@@ -87,7 +84,7 @@ function ReservationRequest(props){
           id='phone'
           placeholder='phone number'
           ref={(input) => {_phone = input;}}/><br />
-        <button onClick={() => {handleConfirmReservationButtonClick();}} type='submit'>Confirm!</button>
+        <button type='submit'>Confirm!</button>
       </form>
     </div>
   );
