@@ -7,6 +7,7 @@ function GuestsRequestsList(props){
     <div>
       {Object.keys(props.reservationsRequestsList).map(function(reservationRequestId) {
         var reservationRequest  = props.reservationsRequestsList[reservationRequestId];
+        console.log(reservationRequest);
         return (
           <GuestRequest
             roomId={reservationRequest.roomId}
@@ -17,7 +18,8 @@ function GuestsRequestsList(props){
             endDay={reservationRequest.endDay}
             totalPrice={reservationRequest.totalPrice}
             id={reservationRequest.id}
-            key={reservationRequest.id} />
+            key={reservationRequest.id}
+            onDeleteReservationRequest={props.onDeleteReservationRequest} />
         );
       })}
     </div>
@@ -25,7 +27,8 @@ function GuestsRequestsList(props){
 }
 
 GuestsRequestsList.propTypes = {
-  reservationsRequestsList: PropTypes.object
+  reservationsRequestsList: PropTypes.object,
+  onDeleteReservationRequest: PropTypes.func
 };
 
 export default GuestsRequestsList;

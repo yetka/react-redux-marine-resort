@@ -125,6 +125,7 @@ class App extends React.Component {
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
     this.handleNewReservationRequestCreation=this.handleNewReservationRequestCreation.bind(this);
+    this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -153,6 +154,18 @@ class App extends React.Component {
     console.log(newReservationsRequestsList);
   }
 
+  handleDeleteReservationRequest(currentReservationId) {
+    var newReservationsRequestsList = {};
+    var currentReservationsRequestsList = this.state.reservationsRequestsList;
+    Object.keys(currentReservationsRequestsList).map(function(reservationId) {
+      var reservation = currentReservationsRequestsList[reservationId];
+      if (reservationId !== currentReservationId) {
+        newReservationsRequestsList[reservationId] = reservation;
+      }
+    })
+    this.setState({reservationsRequestsList: newReservationsRequestsList});
+  }
+
   render() {
     return (
       <div className="container">
@@ -164,7 +177,8 @@ class App extends React.Component {
             onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.state.masterRoomsList}
-            reservationsRequestsList={this.state.reservationsRequestsList} />} />
+            reservationsRequestsList={this.state.reservationsRequestsList}
+            onDeleteReservationRequest={this.handleDeleteReservationRequest} />} />
         </Switch>
       </div>
     );

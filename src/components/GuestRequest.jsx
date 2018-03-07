@@ -9,7 +9,7 @@ function GuestRequest(props){
     <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row">
       <div className="col-md-8">
         <h2>Request</h2>
-        <h5>Room: {props.id}</h5>
+        <h5>Room: {props.roomId}</h5>
         <h5>From: {props.startDay} to: {props.endDay}</h5>
         <h5>Price: ${props.totalPrice}</h5>
         <h5>Guest: {props.firstName} {props.lastName}</h5>
@@ -18,7 +18,9 @@ function GuestRequest(props){
       <div className="col-md-4">
         <EditRequestButton />
         <SubmitRequestButton />
-        <DeleteRequestButton />
+        <DeleteRequestButton
+          reservationId={props.id}
+          onDeleteReservationRequest={props.onDeleteReservationRequest}/>
       </div>
     </div>
   );
@@ -32,7 +34,8 @@ GuestRequest.propTypes = {
   startDay: PropTypes.string,
   endDay: PropTypes.string,
   totalPrice: PropTypes.number,
-  id: PropTypes.string
+  id: PropTypes.string,
+  onDeleteReservationRequest: PropTypes.func
 };
 
 export default GuestRequest;
