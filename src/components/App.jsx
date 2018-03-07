@@ -102,8 +102,8 @@ class App extends React.Component {
       reservationsRequestsList: {
         1: {
           roomId: '5',
-          firstName: 'John',
-          lastName: 'Smith',
+          firstName: 'Gosia',
+          lastName: 'Haniszewska',
           phone: '206 123 4567',
           startDay: '2018-03-02',
           endDay: '2018-03-03',
@@ -112,8 +112,8 @@ class App extends React.Component {
         },
         2: {
           roomId: '2',
-          firstName: 'Matilda',
-          lastName: 'Johnson',
+          firstName: 'Tomasz',
+          lastName: 'Wiszkowski',
           phone: '206 321 4567',
           startDay: '2018-07-02',
           endDay: '2018-07-03',
@@ -126,6 +126,7 @@ class App extends React.Component {
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
     this.handleNewReservationRequestCreation=this.handleNewReservationRequestCreation.bind(this);
     this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
+    this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -166,6 +167,31 @@ class App extends React.Component {
     this.setState({reservationsRequestsList: newReservationsRequestsList});
   }
 
+  handleSubmitReservationRequest(currentReservationId) {
+
+    var currentReservationsRequestsList = this.state.reservationsRequestsList;
+    var reservationToAdd = {};
+    Object.keys(currentReservationsRequestsList).map(function(reservationId) {
+      var reservation = currentReservationsRequestsList[reservationId];
+      if (reservationId === currentReservationId) {
+        reservationToAdd =  reservation;
+      }
+    })
+    console.log(reservationToAdd);
+    var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
+    Object.keys(newMasterRoomsList).map(function(roomId) {
+      var room = newMasterRoomsList[roomId];
+      if (room.id === reservationToAdd.roomId) {
+        room.reservations[reservationToAdd.startDay
+] = reservationToAdd;
+      }
+    })
+    this.setState({masterRoomsList: newMasterRoomsList});
+    this.handleDeleteReservationRequest(currentReservationId);
+    console.log(this.state.masterRoomsList);
+    console.log(this.state.reservationsRequestsList);
+  }
+
   render() {
     return (
       <div className="container">
@@ -178,7 +204,8 @@ class App extends React.Component {
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.state.masterRoomsList}
             reservationsRequestsList={this.state.reservationsRequestsList}
-            onDeleteReservationRequest={this.handleDeleteReservationRequest} />} />
+            onDeleteReservationRequest={this.handleDeleteReservationRequest}
+            onSubmitReservationRequest={this.handleSubmitReservationRequest} />} />
         </Switch>
       </div>
     );
