@@ -152,7 +152,6 @@ class App extends React.Component {
     newReservationsRequestsList[reservation.id] = newReservationsRequests;
 
     this.setState({reservationsRequestsList: newReservationsRequestsList});
-    console.log(newReservationsRequestsList);
   }
 
   handleDeleteReservationRequest(currentReservationId) {
@@ -163,7 +162,7 @@ class App extends React.Component {
       if (reservationId !== currentReservationId) {
         newReservationsRequestsList[reservationId] = reservation;
       }
-    })
+    });
     this.setState({reservationsRequestsList: newReservationsRequestsList});
   }
 
@@ -176,20 +175,17 @@ class App extends React.Component {
       if (reservationId === currentReservationId) {
         reservationToAdd =  reservation;
       }
-    })
-    console.log(reservationToAdd);
+    });
     var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
     Object.keys(newMasterRoomsList).map(function(roomId) {
       var room = newMasterRoomsList[roomId];
       if (room.id === reservationToAdd.roomId) {
         room.reservations[reservationToAdd.startDay
-] = reservationToAdd;
+        ] = reservationToAdd;
       }
-    })
+    });
     this.setState({masterRoomsList: newMasterRoomsList});
     this.handleDeleteReservationRequest(currentReservationId);
-    console.log(this.state.masterRoomsList);
-    console.log(this.state.reservationsRequestsList);
   }
 
   render() {

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function RoomsFilterForm(props){
-  console.log(props);
   let _numberOfGuests = null;
   let _fromDate = null;
   let _toDate = null;
@@ -13,7 +12,7 @@ function RoomsFilterForm(props){
       alert('Date input is invalid, please try again!');
     } else {
       props.onNewFilterCreation({numberOfGuests: _numberOfGuests.value, fromDate: _fromDate.value, toDate: _toDate.value});
-    }  
+    }
   }
 
   return (

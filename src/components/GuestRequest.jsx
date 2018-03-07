@@ -1,5 +1,4 @@
 import React from 'react';
-import EditRequestButton from './EditRequestButton';
 import SubmitRequestButton from './SubmitRequestButton';
 import DeleteRequestButton from './DeleteRequestButton';
 import PropTypes from 'prop-types';
@@ -16,7 +15,6 @@ function GuestRequest(props){
         <h5>Phone: {props.phone}</h5>
       </div>
       <div className="col-md-4">
-        <EditRequestButton />
         <SubmitRequestButton
           reservationId={props.id}
           onSubmitReservationRequest={props.onSubmitReservationRequest}/>

@@ -7,7 +7,6 @@ function GuestsRequestsList(props){
     <div>
       {Object.keys(props.reservationsRequestsList).map(function(reservationRequestId) {
         var reservationRequest  = props.reservationsRequestsList[reservationRequestId];
-        console.log(reservationRequest);
         return (
           <GuestRequest
             roomId={reservationRequest.roomId}

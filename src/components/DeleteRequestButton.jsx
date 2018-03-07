@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function DeleteRequestButton(props){
-  console.log(props.reservationId);
+  
   function handleDeleteRequestButtonClick() {
     props.onDeleteReservationRequest(props.reservationId);
   }

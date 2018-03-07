@@ -4,7 +4,6 @@ import NotAvailableButton from './NotAvailableButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
-  console.log(props);
   var filterNumberOfGuests = props.roomsFilter.numberOfGuests;
   var filterStartDay = new Date(props.roomsFilter.startDay);
   var filterEndDay = new Date(props.roomsFilter.lastDay);

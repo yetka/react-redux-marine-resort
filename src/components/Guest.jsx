@@ -5,7 +5,7 @@ import RoomsList from './RoomsList';
 import PropTypes from 'prop-types';
 
 function Guest(props){
-  console.log(props);
+
   return (
     <div className="container">
       <Header />
