@@ -226,11 +226,21 @@ class App extends React.Component {
         Object.keys(reservations).map(function(currentReservationId) {
           var reservation = reservations[currentReservationId];
           if (reservation.id === reservationToEdit.reservationToUpdateId) {
-            reservation.firstDay = reservationToEdit.firstDay;
-            reservation.lastDay = reservationToEdit.lastDay;
-            reservation.firstName = reservationToEdit.firstName;
-            reservation.lastName = reservationToEdit.lastName;
-            reservation.phone = reservationToEdit.phone;
+            if (reservationToEdit.firstDay.length > 0) {
+              reservation.firstDay = reservationToEdit.firstDay;
+            }
+            if (reservationToEdit.lastDay.length > 0) {
+              reservation.lastDay = reservationToEdit.lastDay;
+            }
+            if (reservationToEdit.firstName.length > 0) {
+              reservation.firstName = reservationToEdit.firstName;
+            }
+            if (reservationToEdit.lastName.length > 0) {
+              reservation.lastName = reservationToEdit.lastName;
+            }
+            if (reservationToEdit.phone.length > 0) {
+              reservation.phone = reservationToEdit.phone;
+            }            
           }
         });
       }
