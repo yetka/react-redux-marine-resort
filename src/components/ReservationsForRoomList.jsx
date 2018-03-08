@@ -3,6 +3,7 @@ import Reservation from './Reservation';
 import PropTypes from 'prop-types';
 
 function ReservationsForRoomList(props){
+  console.log(props);
   return (
     <div>
       {Object.keys(props.room.reservations).map(function(reservationId) {
@@ -13,9 +14,11 @@ function ReservationsForRoomList(props){
             startDay={reservation.id}
             id={reservation.id}
             lastDay={reservation.lastDay}
+            firstName={reservation.firstName}
             lastName={reservation.lastName}
             key={reservation.id}
-            onDeleteReservation={props.onDeleteReservation}/>
+            onDeleteReservation={props.onDeleteReservation}
+            onReservationEdition={props.onReservationEdition}/>
         );
       })}
     </div>
@@ -25,7 +28,8 @@ function ReservationsForRoomList(props){
 ReservationsForRoomList.propTypes = {
   room: PropTypes.object,
   id: PropTypes.string,
-  onDeleteReservation: PropTypes.func
+  onDeleteReservation: PropTypes.func,
+  onReservationEdition: PropTypes.func,
 };
 
 export default ReservationsForRoomList;

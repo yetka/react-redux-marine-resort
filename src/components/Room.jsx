@@ -12,7 +12,7 @@ function Room(props){
     var reservations = [];
     Object.keys(props.reservations).map(function(reservationId) {
       var reservation = props.reservations[reservationId];
-      var reservationStartDay = new Date(reservation.id);
+      var reservationStartDay = new Date(reservation.firstDay);
       var reservationEndDay = new Date(reservation.lastDay);
       if (((filterStartDay < reservationStartDay) && (filterEndDay < reservationEndDay)) || ((filterStartDay > reservationStartDay) && (filterEndDay > reservationEndDay))) {
         return reservations.push(true);

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 function ReservationsToEdit(props){
+  console.log(props);
   return (
     <div>
       {Object.keys(props.masterRoomsList).map(function(roomId) {
@@ -19,7 +20,8 @@ function ReservationsToEdit(props){
               <Switch>
                 <Route exact path={`/admin/reservations-to-edit/${room.id}`} render={()=><ReservationsForRoomList
                   room={room}
-                  onDeleteReservation={props.onDeleteReservation} />} />
+                  onDeleteReservation={props.onDeleteReservation}
+                  onReservationEdition={props.onReservationEdition} />} />
               </Switch>
             </div>
           </div>
@@ -35,7 +37,8 @@ function ReservationsToEdit(props){
 
 ReservationsToEdit.propTypes = {
   masterRoomsList: PropTypes.object,
-  onDeleteReservation: PropTypes.func
+  onDeleteReservation: PropTypes.func,
+  onReservationEdition: PropTypes.func,
 };
 
 export default ReservationsToEdit;

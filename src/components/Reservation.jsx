@@ -1,23 +1,59 @@
 import React from 'react';
 import EditReservationButton from './EditReservationButton';
 import DeleteReservationButton from './DeleteReservationButton';
+import EditReservationForm from './EditReservationForm';
 import PropTypes from 'prop-types';
 
-function Reservation(props){
-  return (
-    <div style={{backgroundColor: 'white', padding: '5px', margin: '5px'}} className="row">
-      <div className="col-md-8">
-        <h6>Date: {props.startDay}-{props.lastDay}; {props.lastName}</h6>
+class  Reservation extends React.Component {
+  constructor(props) {
+    console.log(props);
+    super(props);
+    this.state = {
+      formVisibleOnPage: false
+    };
+    this.handleEditReservationButtonClick=this.handleEditReservationButtonClick.bind(this);
+    this.handleEditReservationFormDoneButtonClick=this.handleEditReservationFormDoneButtonClick.bind(this);
+  }
+
+  handleEditReservationButtonClick() {
+    this.setState({formVisibleOnPage: true});
+  }
+
+  handleEditReservationFormDoneButtonClick() {
+    this.setState({formVisibleOnPage: false});
+  }
+
+  render() {
+    let currentlyVisibleContent = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleContent =
+        <div className="col-md-6">
+          <EditReservationForm
+            roomId={this.props.roomId}
+            reservationId={this.props.id}
+            onEditReservationFormDoneButtonClick={this.handleEditReservationFormDoneButtonClick}
+            onReservationEdition={this.props.onReservationEdition} />
+        </div>;
+    } else {
+      currentlyVisibleContent =
+        <div className="col-md-6">
+          <EditReservationButton onEditReservationButtonClick={this.handleEditReservationButtonClick}/>
+          <DeleteReservationButton
+            roomId={this.props.roomId}
+            reservationId={this.props.id}
+            onDeleteReservation={this.props.onDeleteReservation} />
+        </div>;
+    }
+
+    return (
+      <div style={{backgroundColor: 'white', padding: '5px', margin: '5px'}} className="row">
+        <div className="col-md-6">
+          <h6>Start: {this.props.startDay} End: {this.props.lastDay} Guest: {this.props.firstName} {this.props.lastName}</h6>
+        </div>
+        {currentlyVisibleContent}
       </div>
-      <div className="col-md-4">
-        <EditReservationButton />
-        <DeleteReservationButton
-          roomId={props.roomId}
-          reservationId={props.id}
-          onDeleteReservation={props.onDeleteReservation} />
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 Reservation.propTypes = {
@@ -25,8 +61,10 @@ Reservation.propTypes = {
   startDay: PropTypes.string,
   lastDay: PropTypes.string,
   lastName: PropTypes.string,
+  firstName: PropTypes.string,
   id: PropTypes.string,
-  onDeleteReservation: PropTypes.func
+  onDeleteReservation: PropTypes.func,
+  onReservationEdition: PropTypes.func,
 };
 
 export default Reservation;

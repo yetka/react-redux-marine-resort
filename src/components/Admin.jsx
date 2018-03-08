@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 
 
 function Admin(props){
+  console.log(props);
   return (
     <div className="row">
       <div className="col-md-3">
@@ -19,7 +20,8 @@ function Admin(props){
             onSubmitReservationRequest={props.onSubmitReservationRequest}/>} />
           <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit
             masterRoomsList={props.masterRoomsList}
-            onDeleteReservation={props.onDeleteReservation} />} />
+            onDeleteReservation={props.onDeleteReservation}
+            onReservationEdition={props.onReservationEdition} />} />
         </Switch>
       </div>
     </div>
@@ -29,6 +31,7 @@ function Admin(props){
 Admin.propTypes = {
   masterRoomsList: PropTypes.object,
   reservationsRequestsList: PropTypes.object,
+  onReservationEdition: PropTypes.func,
   onDeleteReservationRequest: PropTypes.func,
   onSubmitReservationRequest: PropTypes.func,
   onDeleteReservation: PropTypes.func

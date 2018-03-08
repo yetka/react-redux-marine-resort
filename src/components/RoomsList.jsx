@@ -16,7 +16,7 @@ function RoomsList(props){
             offSeasonPrice={room.offSeasonPrice}
             reservations={room.reservations}
             id={room.id}
-            key={room.id}
+            key={roomId}
             roomsFilter={props.roomsFilter}
             onNewReservationRequestCreation={props.onNewReservationRequestCreation} />
         );
