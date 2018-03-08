@@ -8,15 +8,15 @@ function ReservationsForRoomList(props){
       {Object.keys(props.room.reservations).map(function(reservationId) {
         var reservation  = props.room.reservations[reservationId];
         return (
-            <Reservation
-              roomId={props.room.id}
-              startDay={reservation.id}
-              id={reservation.id}
-              lastDay={reservation.lastDay}
-              lastName={reservation.lastName}
-              key={reservation.id}
-              onDeleteReservation={props.onDeleteReservation}/>
-          );
+          <Reservation
+            roomId={props.room.id}
+            startDay={reservation.id}
+            id={reservation.id}
+            lastDay={reservation.lastDay}
+            lastName={reservation.lastName}
+            key={reservation.id}
+            onDeleteReservation={props.onDeleteReservation}/>
+        );
       })}
     </div>
   );

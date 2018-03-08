@@ -1,7 +1,6 @@
 import React from 'react';
 import AdminNavBar from './AdminNavBar';
 import GuestsRequestsList from './GuestsRequestsList';
-import RoomsToEdit from './RoomsToEdit';
 import ReservationsToEdit from './ReservationsToEdit';
 import { Switch, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,10 +17,9 @@ function Admin(props){
           <Route exact path='/admin/' render={()=><GuestsRequestsList reservationsRequestsList={props.reservationsRequestsList}
             onDeleteReservationRequest={props.onDeleteReservationRequest}
             onSubmitReservationRequest={props.onSubmitReservationRequest}/>} />
-          <Route path='/admin/rooms-to-edit' render={()=><RoomsToEdit masterRoomsList={props.masterRoomsList} />} />
           <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit
-              masterRoomsList={props.masterRoomsList}
-              onDeleteReservation={props.onDeleteReservation} />} />
+            masterRoomsList={props.masterRoomsList}
+            onDeleteReservation={props.onDeleteReservation} />} />
         </Switch>
       </div>
     </div>

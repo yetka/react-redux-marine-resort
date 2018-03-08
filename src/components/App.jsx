@@ -174,15 +174,20 @@ class App extends React.Component {
     Object.keys(currentReservationsRequestsList).map(function(reservationId) {
       var reservation = currentReservationsRequestsList[reservationId];
       if (reservationId === currentReservationId) {
-        reservationToAdd =  reservation;
+        reservationToAdd['id'] =  reservation.startDay;
+        reservationToAdd['lastDay'] =  reservation.endDay;
+        reservationToAdd['firstName'] =  reservation.firstName;
+        reservationToAdd['lastName'] =  reservation.lastName;
+        reservationToAdd['phone'] =  reservation.phone;
+        reservationToAdd['totalPrice'] =  reservation.totalPrice;
+        reservationToAdd['roomId'] =  reservation.roomId;
       }
     });
     var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
     Object.keys(newMasterRoomsList).map(function(roomId) {
       var room = newMasterRoomsList[roomId];
       if (room.id === reservationToAdd.roomId) {
-        room.reservations[reservationToAdd.startDay
-        ] = reservationToAdd;
+        room.reservations[reservationToAdd.id] = reservationToAdd;
       }
     });
     this.setState({masterRoomsList: newMasterRoomsList});
@@ -205,7 +210,7 @@ class App extends React.Component {
             newReservations[reservationId] = reservation;
           }
           return newReservations;
-        })
+        });
         room.reservations = newReservations;
       }
     });
