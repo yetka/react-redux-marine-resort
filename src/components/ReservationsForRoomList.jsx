@@ -5,19 +5,7 @@ import PropTypes from 'prop-types';
 function ReservationsForRoomList(props){
   return (
     <div>
-      {Object.keys(props.masterRoomsList).map(function(roomId) {
-        var room  = props.masterRoomsList[roomId];
-        return Object.keys(room.reservations).map(function(resevationId) {
-          var reservation = room.reservations[resevationId];
-          return (
-            <Reservation
-              startDay={reservation.id}
-              lastDay={reservation.lastDay}
-              lastName={reservation.lastName}
-              key={reservation.id}/>
-          );
-        });
-      })}
+      
     </div>
   );
 }
