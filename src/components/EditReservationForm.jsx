@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function EditReservationForm(props){
   console.log(props);
-  let _id = null;
+  let _firstDay = null;
   let _lastDay = null;
   let _firstName = null;
   let _lastName = null;
@@ -11,7 +11,7 @@ function EditReservationForm(props){
 
   function handleEditReservationFormSubmission(event) {
     event.preventDefault();
-    props.onReservationEdition({id: _id.value, lastDay: _lastDay.value, firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, reservationToUpdateId: props.reservationId, roomId: props.roomId});
+    props.onReservationEdition({firstDay: _firstDay.value, lastDay: _lastDay.value, firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, reservationToUpdateId: props.reservationId, roomId: props.roomId});
     props.onEditReservationFormDoneButtonClick();
   }
   return (
@@ -22,7 +22,7 @@ function EditReservationForm(props){
           type='date'
           id='fromDate'
           placeholder='from date'
-          ref={(input) => {_id = input;}} />
+          ref={(input) => {_firstDay = input;}} />
         <label> End Day: </label>
         <input
           type='date'

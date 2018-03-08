@@ -11,7 +11,7 @@ function ReservationsForRoomList(props){
         return (
           <Reservation
             roomId={props.room.id}
-            startDay={reservation.id}
+            startDay={reservation.firstDay}
             id={reservation.id}
             lastDay={reservation.lastDay}
             firstName={reservation.firstName}

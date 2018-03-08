@@ -221,12 +221,14 @@ class App extends React.Component {
     var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
     Object.keys(newMasterRoomsList).map(function(roomId) {
       var room = newMasterRoomsList[roomId];
-      if (room.id === roomWithReservationToEdit) {
-        Object.keys(room.reservations).map(function(reservation) {
+      if (room.id == roomWithReservationToEdit) {
+        var reservations = room.reservations;
+        Object.keys(reservations).map(function(currentReservationId) {
+          var reservation = reservations[currentReservationId];
           if (reservation.id === reservationToEdit.reservationToUpdateId) {
             reservation.firstDay = reservationToEdit.firstDay;
             reservation.lastDay = reservationToEdit.lastDay;
-            reservation.firstNmae = reservationToEdit.firstNmae;
+            reservation.firstName = reservationToEdit.firstName;
             reservation.lastName = reservationToEdit.lastName;
             reservation.phone = reservationToEdit.phone;
           }
