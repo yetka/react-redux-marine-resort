@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 
 function Admin(props){
-  console.log(props);
+
   return (
     <div className="row">
       <div className="col-md-3">

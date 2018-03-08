@@ -216,7 +216,6 @@ class App extends React.Component {
   }
 
   handleReservationEdition(reservationToEdit) {
-    console.log(reservationToEdit);
     var roomWithReservationToEdit = reservationToEdit.roomId;
     var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
     Object.keys(newMasterRoomsList).map(function(roomId) {
@@ -240,12 +239,11 @@ class App extends React.Component {
             }
             if (reservationToEdit.phone.length > 0) {
               reservation.phone = reservationToEdit.phone;
-            }            
+            }
           }
         });
       }
     });
-    console.log(newMasterRoomsList);
     this.setState({masterRoomsList: newMasterRoomsList});
   }
 

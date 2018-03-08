@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 function ReservationsToEdit(props){
-  console.log(props);
+  
   return (
     <div>
       {Object.keys(props.masterRoomsList).map(function(roomId) {

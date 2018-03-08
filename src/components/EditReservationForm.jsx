@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function EditReservationForm(props){
-  console.log(props);
+  
   let _firstDay = null;
   let _lastDay = null;
   let _firstName = null;

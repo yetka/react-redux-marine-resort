@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 
 class  Reservation extends React.Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       formVisibleOnPage: false

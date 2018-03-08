@@ -3,7 +3,7 @@ import Reservation from './Reservation';
 import PropTypes from 'prop-types';
 
 function ReservationsForRoomList(props){
-  console.log(props);
+  
   return (
     <div>
       {Object.keys(props.room.reservations).map(function(reservationId) {
