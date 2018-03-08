@@ -6,13 +6,13 @@ import { Link } from 'react-router-dom';
 
 
 function ReservationsToEdit(props){
-  
+
   return (
     <div>
       {Object.keys(props.masterRoomsList).map(function(roomId) {
         var room  = props.masterRoomsList[roomId];
         return (
-          <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row" key={room.id} id={room.id}>
+          <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row" key={roomId} id={room.id}>
             <div className="col-md-3">
               <Link to={`/admin/reservations-to-edit/${room.id}`}>{room.name}</Link><br/>
             </div>
