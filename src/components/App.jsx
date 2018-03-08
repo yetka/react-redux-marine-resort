@@ -197,7 +197,6 @@ class App extends React.Component {
       var room = newMasterRoomsList[roomId];
       if (room.id === currentRoomId) {
         var reservations = room.reservations;
-        console.log(reservations);
         var newReservations = {};
         Object.keys(reservations).map(function(reservationId) {
           var reservation = reservations[reservationId];

@@ -4,7 +4,6 @@ import DeleteReservationButton from './DeleteReservationButton';
 import PropTypes from 'prop-types';
 
 function Reservation(props){
-  console.log(props.roomId);
   return (
     <div style={{backgroundColor: 'white', padding: '5px', margin: '5px'}} className="row">
       <div className="col-md-8">
