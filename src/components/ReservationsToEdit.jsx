@@ -11,7 +11,7 @@ function ReservationsToEdit(props){
       {Object.keys(props.masterRoomsList).map(function(roomId) {
         var room  = props.masterRoomsList[roomId];
         return (
-          <div className="row" key={room.id}>
+          <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row" key={room.id}>
             <div className="col-md-3">
               <Link to={`/admin/reservations-to-edit/${room.id}`}>{room.name}</Link><br/>
             </div>
