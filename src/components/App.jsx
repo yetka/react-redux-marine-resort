@@ -157,7 +157,7 @@ class App extends React.Component {
 
   handleDeleteReservationRequest(currentReservationId) {
     var newReservationsRequestsList = {};
-    var currentReservationsRequestsList = this.state.reservationsRequestsList;
+    var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
     Object.keys(currentReservationsRequestsList).map(function(reservationId) {
       var reservation = currentReservationsRequestsList[reservationId];
       if (reservationId !== currentReservationId) {
@@ -169,7 +169,7 @@ class App extends React.Component {
 
   handleSubmitReservationRequest(currentReservationId) {
 
-    var currentReservationsRequestsList = this.state.reservationsRequestsList;
+    var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
     var reservationToAdd = {};
     Object.keys(currentReservationsRequestsList).map(function(reservationId) {
       var reservation = currentReservationsRequestsList[reservationId];
@@ -192,8 +192,25 @@ class App extends React.Component {
   handleDeleteReservation(currentReservationInfo) {
     var currentReservationId = currentReservationInfo.reservationId;
     var currentRoomId = currentReservationInfo.roomId;
-    console.log(currentReservationId);
-    console.log(currentRoomId);
+    var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
+    Object.keys(newMasterRoomsList).map(function(roomId) {
+      var room = newMasterRoomsList[roomId];
+      if (room.id === currentRoomId) {
+        var reservations = room.reservations;
+        console.log(reservations);
+        var newReservations = {};
+        Object.keys(reservations).map(function(reservationId) {
+          var reservation = reservations[reservationId];
+
+          if (reservation.id !== currentReservationId) {
+            newReservations[reservationId] = reservation;
+          }
+          return newReservations;
+        })
+        room.reservations = newReservations;
+      }
+    });
+    this.setState({masterRoomsList: newMasterRoomsList});
   }
 
   render() {
