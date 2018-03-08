@@ -127,6 +127,7 @@ class App extends React.Component {
     this.handleNewReservationRequestCreation=this.handleNewReservationRequestCreation.bind(this);
     this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
     this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
+    this.handleDeleteReservation=this.handleDeleteReservation.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -188,6 +189,13 @@ class App extends React.Component {
     this.handleDeleteReservationRequest(currentReservationId);
   }
 
+  handleDeleteReservation(currentReservationInfo) {
+    var currentReservationId = currentReservationInfo.reservationId;
+    var currentRoomId = currentReservationInfo.roomId;
+    console.log(currentReservationId);
+    console.log(currentRoomId);
+  }
+
   render() {
     return (
       <div className="container">
@@ -201,7 +209,8 @@ class App extends React.Component {
             masterRoomsList={this.state.masterRoomsList}
             reservationsRequestsList={this.state.reservationsRequestsList}
             onDeleteReservationRequest={this.handleDeleteReservationRequest}
-            onSubmitReservationRequest={this.handleSubmitReservationRequest} />} />
+            onSubmitReservationRequest={this.handleSubmitReservationRequest}
+            onDeleteReservation={this.handleDeleteReservation} />} />
         </Switch>
       </div>
     );

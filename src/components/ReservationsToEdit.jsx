@@ -11,14 +11,15 @@ function ReservationsToEdit(props){
       {Object.keys(props.masterRoomsList).map(function(roomId) {
         var room  = props.masterRoomsList[roomId];
         return (
-          <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row" key={room.id}>
+          <div style={{backgroundColor: 'lightGray', margin: '15px', padding: '15px'}} className="row" key={room.id} id={room.id}>
             <div className="col-md-3">
               <Link to={`/admin/reservations-to-edit/${room.id}`}>{room.name}</Link><br/>
             </div>
             <div className="col-md-9">
               <Switch>
                 <Route exact path={`/admin/reservations-to-edit/${room.id}`} render={()=><ReservationsForRoomList
-                  room={room} />} />
+                  room={room}
+                  onDeleteReservation={props.onDeleteReservation} />} />
               </Switch>
             </div>
           </div>
@@ -33,7 +34,8 @@ function ReservationsToEdit(props){
 }
 
 ReservationsToEdit.propTypes = {
-  masterRoomsList: PropTypes.object
+  masterRoomsList: PropTypes.object,
+  onDeleteReservation: PropTypes.func
 };
 
 export default ReservationsToEdit;

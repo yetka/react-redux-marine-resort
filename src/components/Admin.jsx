@@ -19,7 +19,9 @@ function Admin(props){
             onDeleteReservationRequest={props.onDeleteReservationRequest}
             onSubmitReservationRequest={props.onSubmitReservationRequest}/>} />
           <Route path='/admin/rooms-to-edit' render={()=><RoomsToEdit masterRoomsList={props.masterRoomsList} />} />
-          <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit masterRoomsList={props.masterRoomsList} />} />
+          <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit
+              masterRoomsList={props.masterRoomsList}
+              onDeleteReservation={props.onDeleteReservation} />} />
         </Switch>
       </div>
     </div>
@@ -30,7 +32,8 @@ Admin.propTypes = {
   masterRoomsList: PropTypes.object,
   reservationsRequestsList: PropTypes.object,
   onDeleteReservationRequest: PropTypes.func,
-  onSubmitReservationRequest: PropTypes.func
+  onSubmitReservationRequest: PropTypes.func,
+  onDeleteReservation: PropTypes.func
 };
 
 export default Admin;
