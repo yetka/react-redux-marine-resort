@@ -119,18 +119,6 @@ class App extends React.Component {
     this.setState({roomsFilter: newRoomsFilter});
   }
 
-  // handleDeleteReservationRequest(currentReservationId) {
-  //   var newReservationsRequestsList = {};
-  //   var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
-  //   Object.keys(currentReservationsRequestsList).map(function(reservationId) {
-  //     var reservation = currentReservationsRequestsList[reservationId];
-  //     if (reservationId !== currentReservationId) {
-  //       newReservationsRequestsList[reservationId] = reservation;
-  //     }
-  //   });
-  //   this.setState({reservationsRequestsList: newReservationsRequestsList});
-  // }
-
   handleSubmitReservationRequest(currentReservationId) {
     var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
     var reservationToAdd = {};
@@ -225,7 +213,6 @@ class App extends React.Component {
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.state.masterRoomsList}
             reservationsRequestsList={this.props.reservationsRequestsList}
-            onDeleteReservationRequest={this.handleDeleteReservationRequest}
             onSubmitReservationRequest={this.handleSubmitReservationRequest}
             onDeleteReservation={this.handleDeleteReservation}
             onReservationEdition={this.handleReservationEdition} />} />

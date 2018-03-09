@@ -19,8 +19,7 @@ function GuestRequest(props){
           reservationId={props.id}
           onSubmitReservationRequest={props.onSubmitReservationRequest}/>
         <DeleteRequestButton
-          reservationId={props.id}
-          onDeleteReservationRequest={props.onDeleteReservationRequest}/>
+          reservationId={props.id}/>
       </div>
     </div>
   );
@@ -35,7 +34,6 @@ GuestRequest.propTypes = {
   endDay: PropTypes.string,
   totalPrice: PropTypes.number,
   id: PropTypes.string,
-  onDeleteReservationRequest: PropTypes.func,
   onSubmitReservationRequest: PropTypes.func
 };
 

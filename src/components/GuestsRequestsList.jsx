@@ -18,7 +18,6 @@ function GuestsRequestsList(props){
             totalPrice={reservationRequest.totalPrice}
             id={reservationRequest.id}
             key={reservationRequest.id}
-            onDeleteReservationRequest={props.onDeleteReservationRequest}
             onSubmitReservationRequest={props.onSubmitReservationRequest} />
         );
       })}
@@ -28,7 +27,6 @@ function GuestsRequestsList(props){
 
 GuestsRequestsList.propTypes = {
   reservationsRequestsList: PropTypes.object,
-  onDeleteReservationRequest: PropTypes.func,
   onSubmitReservationRequest: PropTypes.func
 };
 
