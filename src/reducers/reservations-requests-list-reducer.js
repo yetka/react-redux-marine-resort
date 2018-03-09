@@ -21,13 +21,12 @@ const reservationsRequestsListReducer = (state = initialState.reservationsReques
     return newState;
   }
   case types.DELETE_RESERVATION_REQUEST: {
-    let currentReservationId = action.currentReservationId;
+    let currentReservationRequestId = action.currentReservationRequestId;
     let newState = {};
     let currentReservationsRequestsList = Object.assign({}, state);
-    console.log(currentReservationsRequestsList);
     Object.keys(currentReservationsRequestsList).map(function(reservationId) {
       let reservation = currentReservationsRequestsList[reservationId];
-      if (reservationId !== currentReservationId) {
+      if (reservationId !== currentReservationRequestId) {
         newState[reservationId] = reservation;
       }
     });

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 function DeleteRequestButton(props){
-  
+
   function handleDeleteRequestButtonClick() {
     const { dispatch } = props;
     const action = {
       type: 'DELETE_RESERVATION_REQUEST',
-      currentReservationId: props.reservationId
+      currentReservationRequestId: props.reservationId
     };
     dispatch(action);
   }

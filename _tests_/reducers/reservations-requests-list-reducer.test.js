@@ -1,57 +1,49 @@
 import reservationsRequestsListReducer from './../../src/reducers/reservations-requests-list-reducer';
+import constants from "./../../src/constants";
+import { createStore } from 'redux';
+import rootReducer from './../../src/reducers/index';
 
 describe('reservationsRequestsListReducer', () => {
+  const { initialState, types } = constants;
+  const store = createStore(rootReducer, initialState);
 
-  let action;
-  const sampleReservationRequest = {
-    roomId: '5',
-    firstName: 'Gosia',
-    lastName: 'Haniszewska',
-    phone: '206 123 4567',
-    startDay: '2018-03-02',
-    endDay: '2018-03-03',
-    totalPrice: 300,
-    id: '123456789'
-  };
-
-  test('Should return default state if no action type is recognized', () => {
-    expect(reservationsRequestsListReducer({}, { type: null })).toEqual({});
+  it('Should return default state if no action type is recognized', () => {
+    expect(reservationsRequestsListReducer(initialState.reservationsRequestsList, { type: null })).toEqual(initialState.reservationsRequestsList);
   });
 
-  test('Should successfully add new reservationRequest data to reservationsRequestsList', () => {
-    const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = sampleReservationRequest;
-    action = {
+  it('Should successfully add new reservationRequest data to reservationsRequestsList', () => {
+    let action = {
       type: 'ADD_RESERVATION_REQUEST',
-      roomId: roomId,
-      firstName: firstName,
-      lastName: lastName,
-      phone: phone,
-      startDay: startDay,
-      endDay: endDay,
-      totalPrice: totalPrice,
-      id: id
+      roomId: '1',
+      firstName: 'Danuta',
+      lastName: 'Haniszewska',
+      phone: '206 333 4567',
+      startDay: '2018-03-02',
+      endDay: '2018-03-03',
+      totalPrice: 300,
+      id: '444444444444'
     };
-    expect(reservationsRequestsListReducer({}, action)).toEqual({
-      [id]: {
-        roomId: roomId,
-        firstName: firstName,
-        lastName: lastName,
-        phone: phone,
-        startDay: startDay,
-        endDay: endDay,
-        totalPrice: totalPrice,
-        id: id
-      }
-    });
-  });
+    expect(reservationsRequestsListReducer(initialState.reservationsRequestsList, action)).toEqual(Object.assign({},initialState.reservationsRequestsList, {
+      [444444444444]: {
+        roomId: '1',
+        firstName: 'Danuta',
+        lastName: 'Haniszewska',
+        phone: '206 333 4567',
+        startDay: '2018-03-02',
+        endDay: '2018-03-03',
+        totalPrice: 300,
+        id: '444444444444'
+        }
+      })
+    );
+  })
 
-  // test('Should successfully remove reservationRequest data from reservationsRequestsList', () => {
-  //   const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = sampleReservationRequest;
-  //   action = {
-  //     type: 'DELETE_RESERVATION_REQUEST',
-  //     reservationRequestId: reservationRequestId
-  //   };
-  //   expect(reservationsRequestsListReducer({}, action)).toEqual({});
-  // });
+  it('Should successfully remove reservationRequest data from reservationsRequestsList', () => {
+    let action = {
+      type: 'DELETE_RESERVATION_REQUEST',
+      currentReservationRequestId: '987654321'
+    };
+    expect(Object.keys(reservationsRequestsListReducer(initialState.reservationsRequestsList, action))).toEqual(['123456789']);
+  });
 
 });
