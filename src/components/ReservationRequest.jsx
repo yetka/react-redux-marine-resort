@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import { connect } from 'react-redux';
 
 function ReservationRequest(props){
+
   var start = new Date(props.startDay);
   var end = new Date(props.endDay);
   var totalNumberOfDays = ((end - start) / (1000*60*60*24)) + 1;
@@ -55,11 +57,20 @@ function ReservationRequest(props){
   let _phone = null;
 
   function handleReservationRequestSubmission(event) {
+    const { dispatch } = props;
     event.preventDefault();
-    var startDay = props.startDay;
-    var endDay = props.endDay;
-    var roomId = props.roomId;
-    props.onNewReservationRequestCreation({firstName: _firstName.value, lastName: _lastName.value, phone: _phone.value, startDay, endDay, roomId, totalPrice, id: v4()});
+    const action = {
+      type: 'ADD_RESERVATION_REQUEST',
+      roomId: props.roomId,
+      firstName: _firstName.value,
+      lastName: _lastName.value,
+      phone: _phone.value,
+      startDay: props.startDay,
+      endDay: props.endDay,
+      totalPrice: totalPrice,
+      id: v4()
+    };
+    dispatch(action);
     props.onConfirmReservationButtonClick();
   }
 
@@ -96,8 +107,9 @@ ReservationRequest.propTypes = {
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
   roomId: PropTypes.string,
-  onNewReservationRequestCreation: PropTypes.func,
   onConfirmReservationButtonClick: PropTypes.func
 };
 
-export default ReservationRequest;
+
+
+export default connect()(ReservationRequest);
