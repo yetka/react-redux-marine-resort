@@ -39,8 +39,7 @@ class  Reservation extends React.Component {
           <EditReservationButton onEditReservationButtonClick={this.handleEditReservationButtonClick}/>
           <DeleteReservationButton
             roomId={this.props.roomId}
-            reservationId={this.props.id}
-            onDeleteReservation={this.props.onDeleteReservation} />
+            reservationId={this.props.id} />
         </div>;
     }
 
@@ -62,7 +61,6 @@ Reservation.propTypes = {
   lastName: PropTypes.string,
   firstName: PropTypes.string,
   id: PropTypes.string,
-  onDeleteReservation: PropTypes.func,
   onReservationEdition: PropTypes.func,
 };
 

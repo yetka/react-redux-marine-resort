@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 function DeleteReservationButton(props){
-  
+
   function handleDeleteReservationButton() {
-    props.onDeleteReservation({reservationId: props.reservationId, roomId: props.roomId});
+    const { dispatch } = props;
+    const action = {
+      type: 'DELETE_RESERVATION',
+      reservationId: props.reservationId,
+      roomId: props.roomId
+    };
+    dispatch(action);
   }
 
   return (
@@ -16,8 +23,8 @@ function DeleteReservationButton(props){
 
 DeleteReservationButton.propTypes = {
   reservationId: PropTypes.string,
-  onDeleteReservation: PropTypes.func,
-  roomId: PropTypes.string
+  roomId: PropTypes.string,
+  dispatch: PropTypes.func
 };
 
-export default DeleteReservationButton;
+export default connect()(DeleteReservationButton);

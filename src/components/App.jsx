@@ -15,7 +15,6 @@ class App extends React.Component {
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
     this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
-    this.handleDeleteReservation=this.handleDeleteReservation.bind(this);
     this.handleReservationEdition=this.handleReservationEdition.bind(this);
   }
 
@@ -52,29 +51,6 @@ class App extends React.Component {
     });
     this.setState({masterRoomsList: newMasterRoomsList});
     this.handleDeleteReservationRequest(currentReservationId);
-  }
-
-  handleDeleteReservation(currentReservationInfo) {
-    var currentReservationId = currentReservationInfo.reservationId;
-    var currentRoomId = currentReservationInfo.roomId;
-    var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
-    Object.keys(newMasterRoomsList).map(function(roomId) {
-      var room = newMasterRoomsList[roomId];
-      if (room.id === currentRoomId) {
-        var reservations = room.reservations;
-        var newReservations = {};
-        Object.keys(reservations).map(function(reservationId) {
-          var reservation = reservations[reservationId];
-
-          if (reservation.id !== currentReservationId) {
-            newReservations[reservationId] = reservation;
-          }
-          return newReservations;
-        });
-        room.reservations = newReservations;
-      }
-    });
-    this.setState({masterRoomsList: newMasterRoomsList});
   }
 
   handleReservationEdition(reservationToEdit) {
@@ -122,7 +98,6 @@ class App extends React.Component {
             masterRoomsList={this.props.masterRoomsList}
             reservationsRequestsList={this.props.reservationsRequestsList}
             onSubmitReservationRequest={this.handleSubmitReservationRequest}
-            onDeleteReservation={this.handleDeleteReservation}
             onReservationEdition={this.handleReservationEdition} />} />
         </Switch>
       </div>
@@ -138,7 +113,8 @@ const mapStateToProps = state => {
 };
 
 App.propTypes = {
-  reservationsRequestsList: PropTypes.object
+  reservationsRequestsList: PropTypes.object,
+  masterRoomsList: PropTypes.object
 };
 
 export default withRouter(connect(mapStateToProps)(App));

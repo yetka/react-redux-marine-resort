@@ -3,7 +3,7 @@ import Reservation from './Reservation';
 import PropTypes from 'prop-types';
 
 function ReservationsForRoomList(props){
-  
+
   return (
     <div>
       {Object.keys(props.room.reservations).map(function(reservationId) {
@@ -17,7 +17,6 @@ function ReservationsForRoomList(props){
             firstName={reservation.firstName}
             lastName={reservation.lastName}
             key={reservation.id}
-            onDeleteReservation={props.onDeleteReservation}
             onReservationEdition={props.onReservationEdition}/>
         );
       })}
@@ -28,7 +27,6 @@ function ReservationsForRoomList(props){
 ReservationsForRoomList.propTypes = {
   room: PropTypes.object,
   id: PropTypes.string,
-  onDeleteReservation: PropTypes.func,
   onReservationEdition: PropTypes.func,
 };
 

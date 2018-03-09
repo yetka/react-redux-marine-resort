@@ -18,7 +18,7 @@ const roomsListReducer = (state = initialState.masterRoomsList, action) => {
           if (reservation.id !== currentReservationId) {
             newReservations[reservation.id] = reservation;
           }
-        })
+        });
         room.reservations = newReservations;
       }
     });

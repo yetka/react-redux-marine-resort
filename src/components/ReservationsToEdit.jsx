@@ -20,7 +20,6 @@ function ReservationsToEdit(props){
               <Switch>
                 <Route exact path={`/admin/reservations-to-edit/${room.id}`} render={()=><ReservationsForRoomList
                   room={room}
-                  onDeleteReservation={props.onDeleteReservation}
                   onReservationEdition={props.onReservationEdition} />} />
               </Switch>
             </div>
@@ -37,7 +36,6 @@ function ReservationsToEdit(props){
 
 ReservationsToEdit.propTypes = {
   masterRoomsList: PropTypes.object,
-  onDeleteReservation: PropTypes.func,
   onReservationEdition: PropTypes.func,
 };
 
