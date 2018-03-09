@@ -15,8 +15,7 @@ function Guest(props){
       <hr></hr>
       <RoomsList
         masterRoomsList={props.masterRoomsList}
-        roomsFilter={props.roomsFilter}
-        onNewReservationRequestCreation={props.onNewReservationRequestCreation} />
+        roomsFilter={props.roomsFilter} />
     </div>
   );
 }
@@ -24,8 +23,7 @@ function Guest(props){
 Guest.propTypes = {
   masterRoomsList: PropTypes.object,
   onNewFilterCreation: PropTypes.func,
-  roomsFilter: PropTypes.object,
-  onNewReservationRequestCreation: PropTypes.func
+  roomsFilter: PropTypes.object
 };
 
 export default Guest;

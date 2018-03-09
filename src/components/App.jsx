@@ -123,7 +123,6 @@ class App extends React.Component {
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
-    this.handleNewReservationRequestCreation=this.handleNewReservationRequestCreation.bind(this);
     this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
     this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
     this.handleDeleteReservation=this.handleDeleteReservation.bind(this);
@@ -136,21 +135,6 @@ class App extends React.Component {
     newRoomsFilter['startDay'] = newFilter.fromDate;
     newRoomsFilter['lastDay'] = newFilter.toDate;
     this.setState({roomsFilter: newRoomsFilter});
-  }
-
-  handleNewReservationRequestCreation(reservation) {
-    var newReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
-    var newReservationsRequests = {};
-    newReservationsRequests['firstName'] = reservation.firstName;
-    newReservationsRequests['lastName'] = reservation.lastName;
-    newReservationsRequests['phone'] = reservation.phone;
-    newReservationsRequests['startDay'] = reservation.startDay;
-    newReservationsRequests['endDay'] = reservation.endDay;
-    newReservationsRequests['roomId'] = reservation.roomId;
-    newReservationsRequests['totalPrice'] = reservation.totalPrice;
-    newReservationsRequests['id'] = reservation.id;
-    newReservationsRequestsList[reservation.id] = newReservationsRequests;
-    this.setState({reservationsRequestsList: newReservationsRequestsList});
   }
 
   handleDeleteReservationRequest(currentReservationId) {
@@ -255,8 +239,7 @@ class App extends React.Component {
           <Route exact path='/' render={()=><Guest
             masterRoomsList={this.state.masterRoomsList}
             onNewFilterCreation={this.handleNewFilterCreation}
-            roomsFilter={this.state.roomsFilter}
-            onNewReservationRequestCreation={this.handleNewReservationRequestCreation} />} />
+            roomsFilter={this.state.roomsFilter} />} />
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.state.masterRoomsList}
             reservationsRequestsList={this.state.reservationsRequestsList}

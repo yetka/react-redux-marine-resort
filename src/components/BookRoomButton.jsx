@@ -31,7 +31,6 @@ class BookRoomButton extends React.Component {
         endDay={this.props.endDay}
         seasonPrice={this.props.seasonPrice}
         offSeasonPrice={this.props.offSeasonPrice}
-        onNewReservationRequestCreation={this.props.onNewReservationRequestCreation}
         onConfirmReservationButtonClick={this.handleConfirmReservationButtonClick}/>;
     } else {
       currentlyVisibleContent =
@@ -53,8 +52,7 @@ BookRoomButton.propTypes = {
   endDay: PropTypes.string,
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
-  id: PropTypes.string,
-  onNewReservationRequestCreation: PropTypes.func
+  id: PropTypes.string
 };
 
 export default BookRoomButton;
