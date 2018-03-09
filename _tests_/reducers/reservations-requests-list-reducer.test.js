@@ -18,7 +18,7 @@ describe('reservationsRequestsListReducer', () => {
     expect(reservationsRequestsListReducer({}, { type: null })).toEqual({});
   });
 
-  test('Should successfully add new reservationRequest data to ReservationsRequestsList', () => {
+  test('Should successfully add new reservationRequest data to reservationsRequestsList', () => {
     const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = sampleReservationRequest;
     action = {
       type: 'ADD_RESERVATION_REQUEST',
@@ -31,18 +31,16 @@ describe('reservationsRequestsListReducer', () => {
       totalPrice: totalPrice,
       id: id
     };
-    expect(reservationsRequestsListReducer({}, action)).toEqual({
-      [id] : {
-        roomId: roomId,
-        firstName: firstName,
-        lastName: lastName,
-        phone: phone,
-        startDay: startDay,
-        endDay: endDay,
-        totalPrice: totalPrice,
-        id: id
-      }
-    });
+    expect(reservationsRequestsListReducer({}, action)).toEqual({});
+  });
+
+  test('Should successfully remove reservationRequest data from reservationsRequestsList', () => {
+    const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = sampleReservationRequest;
+    action = {
+      type: 'DELETE_RESERVATION_REQUEST',
+      reservationRequestId: reservationRequestId
+    };
+    expect(reservationsRequestsListReducer({}, action)).toEqual({});
   });
 
 });

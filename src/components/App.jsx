@@ -105,7 +105,7 @@ class App extends React.Component {
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
-    this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
+    // this.handleDeleteReservationRequest=this.handleDeleteReservationRequest.bind(this);
     this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
     this.handleDeleteReservation=this.handleDeleteReservation.bind(this);
     this.handleReservationEdition=this.handleReservationEdition.bind(this);
@@ -119,17 +119,17 @@ class App extends React.Component {
     this.setState({roomsFilter: newRoomsFilter});
   }
 
-  handleDeleteReservationRequest(currentReservationId) {
-    var newReservationsRequestsList = {};
-    var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
-    Object.keys(currentReservationsRequestsList).map(function(reservationId) {
-      var reservation = currentReservationsRequestsList[reservationId];
-      if (reservationId !== currentReservationId) {
-        newReservationsRequestsList[reservationId] = reservation;
-      }
-    });
-    this.setState({reservationsRequestsList: newReservationsRequestsList});
-  }
+  // handleDeleteReservationRequest(currentReservationId) {
+  //   var newReservationsRequestsList = {};
+  //   var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
+  //   Object.keys(currentReservationsRequestsList).map(function(reservationId) {
+  //     var reservation = currentReservationsRequestsList[reservationId];
+  //     if (reservationId !== currentReservationId) {
+  //       newReservationsRequestsList[reservationId] = reservation;
+  //     }
+  //   });
+  //   this.setState({reservationsRequestsList: newReservationsRequestsList});
+  // }
 
   handleSubmitReservationRequest(currentReservationId) {
     var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
