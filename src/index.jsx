@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import { HashRouter } from 'react-router-dom';
 import { createStore } from 'redux';
-import reservationsRequestsListReducer from './reducers/reservations-requests-list-reducer';
+import rootReducer from './reducers/index';
 import { Provider } from 'react-redux';
 
-const store = createStore(reservationsRequestsListReducer);
+const store = createStore(rootReducer);
 
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())

@@ -17,20 +17,24 @@ describe('roomsListReducer', () => {
     expect(roomsListReducer({}, { type: null })).toEqual({});
   });
 
-  // test('Should successfully add new reservationRequest data to reservationsRequestsList', () => {
-  //   const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = sampleReservationRequest;
+  // test('Should successfully remove reservation data from specified room', () => {
+  //   const { name, description, numberOfGuests, seasonPrice, offSeasonPrice, reservations, id } = sampleRoom;
   //   action = {
   //     type: 'ADD_RESERVATION_REQUEST',
   //     roomId: roomId,
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     phone: phone,
-  //     startDay: startDay,
-  //     endDay: endDay,
-  //     totalPrice: totalPrice,
-  //     id: id
+  //     reservationId: reservationId
   //   };
-  //   expect(reservationsRequestsListReducer({}, action)).toEqual({});
+  //   expect(reservationsRequestsListReducer({}, action)).toEqual({
+  //     [id]: {
+  //       name: 'Room1',
+  //       description: 'room description here',
+  //       numberOfGuests: 2,
+  //       seasonPrice: 100,
+  //       offSeasonPrice: 80,
+  //       reservations: {'2': {id: '2', firstDay: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
+  //       id: '1'
+  //     }
+  //   });
   // });
 
 

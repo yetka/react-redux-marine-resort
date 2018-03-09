@@ -1,6 +1,10 @@
-export default (state = {}, action) => {
+import constants from './../constants';
+
+const { initialState, types } = constants;
+
+const reservationsRequestsListReducer = (state = initialState.reservationsRequestsList, action) => {
   switch (action.type) {
-  case 'ADD_RESERVATION_REQUEST': {
+  case types.ADD_RESERVATION_REQUEST: {
     const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
@@ -16,7 +20,7 @@ export default (state = {}, action) => {
     });
     return newState;
   }
-  case 'DELETE_RESERVATION_REQUEST': {
+  case types.DELETE_RESERVATION_REQUEST: {
     let currentReservationId = action.currentReservationId;
     let newState = {};
     let currentReservationsRequestsList = Object.assign({}, state);
@@ -33,3 +37,5 @@ export default (state = {}, action) => {
     return state;
   }
 };
+
+export default reservationsRequestsListReducer;

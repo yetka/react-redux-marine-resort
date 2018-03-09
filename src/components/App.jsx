@@ -224,7 +224,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    reservationsRequestsList: state
+    reservationsRequestsList: state.reservationsRequestsList
   };
 };
 
