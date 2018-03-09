@@ -1,6 +1,6 @@
 export default (state = {}, action) => {
   switch (action.type) {
-  case 'ADD_RESERVATION_REQUEST':
+  case 'ADD_RESERVATION_REQUEST': {
     const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
@@ -15,6 +15,7 @@ export default (state = {}, action) => {
       }
     });
     return newState;
+  }
   default:
     return state;
   }

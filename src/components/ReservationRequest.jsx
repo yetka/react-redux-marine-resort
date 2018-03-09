@@ -107,7 +107,8 @@ ReservationRequest.propTypes = {
   seasonPrice: PropTypes.number,
   offSeasonPrice: PropTypes.number,
   roomId: PropTypes.string,
-  onConfirmReservationButtonClick: PropTypes.func
+  onConfirmReservationButtonClick: PropTypes.func,
+  dispatch: PropTypes.func
 };
 
 
