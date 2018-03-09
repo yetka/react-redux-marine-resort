@@ -1,11 +1,15 @@
 import React from 'react';
 import Admin from './Admin';
 import Guest from './Guest';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    console.log(props);
     this.state = {
       masterRoomsList: {
         1: {
@@ -96,28 +100,6 @@ class App extends React.Component {
           offSeasonPrice: 150,
           reservations: {'1': {id: '1', firstDay: '2018-04-02', lastDay: '2018-04-30', firstName: 'Anna', lastName: 'Smith', phone: '206 123 4567'}, '2': {id: '2', firstDay: '2018-05-02', lastDay: '2018-06-04', firstName: 'Travis', lastName: 'Doe', phone: '206 123 9876'} },
           id: '10'
-        }
-      },
-      reservationsRequestsList: {
-        123456789: {
-          roomId: '5',
-          firstName: 'Gosia',
-          lastName: 'Haniszewska',
-          phone: '206 123 4567',
-          startDay: '2018-03-02',
-          endDay: '2018-03-03',
-          totalPrice: 300,
-          id: '123456789'
-        },
-        987654321: {
-          roomId: '2',
-          firstName: 'Tomasz',
-          lastName: 'Wiszkowski',
-          phone: '206 321 4567',
-          startDay: '2018-07-02',
-          endDay: '2018-07-03',
-          totalPrice: 200,
-          id: '987654321'
         }
       },
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
@@ -242,7 +224,7 @@ class App extends React.Component {
             roomsFilter={this.state.roomsFilter} />} />
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.state.masterRoomsList}
-            reservationsRequestsList={this.state.reservationsRequestsList}
+            reservationsRequestsList={this.props.reservationsRequestsList}
             onDeleteReservationRequest={this.handleDeleteReservationRequest}
             onSubmitReservationRequest={this.handleSubmitReservationRequest}
             onDeleteReservation={this.handleDeleteReservation}
@@ -253,4 +235,14 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    reservationsRequestsList: state
+  };
+};
+
+App.propTypes = {
+  reservationsRequestsList: PropTypes.object
+};
+
+export default withRouter(connect(mapStateToProps)(App));
