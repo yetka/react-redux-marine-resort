@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 function SubmitRequestButton(props){
 
@@ -24,4 +25,4 @@ SubmitRequestButton.propTypes = {
   dispatch: PropTypes.func
 };
 
-export default SubmitRequestButton;
+export default connect()(SubmitRequestButton);
