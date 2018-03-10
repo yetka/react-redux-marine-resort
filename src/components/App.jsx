@@ -14,7 +14,6 @@ class App extends React.Component {
       roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
-    this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -23,32 +22,6 @@ class App extends React.Component {
     newRoomsFilter['startDay'] = newFilter.fromDate;
     newRoomsFilter['lastDay'] = newFilter.toDate;
     this.setState({roomsFilter: newRoomsFilter});
-  }
-
-  handleSubmitReservationRequest(currentReservationId) {
-    var currentReservationsRequestsList = Object.assign({}, this.state.reservationsRequestsList);
-    var reservationToAdd = {};
-    Object.keys(currentReservationsRequestsList).map(function(reservationId) {
-      var reservation = currentReservationsRequestsList[reservationId];
-      if (reservationId === currentReservationId) {
-        reservationToAdd['id'] =  reservation.id;
-        reservationToAdd['firstDay'] =  reservation.startDay;
-        reservationToAdd['lastDay'] =  reservation.endDay;
-        reservationToAdd['firstName'] =  reservation.firstName;
-        reservationToAdd['lastName'] =  reservation.lastName;
-        reservationToAdd['phone'] =  reservation.phone;
-        reservationToAdd['totalPrice'] =  reservation.totalPrice;
-        reservationToAdd['roomId'] =  reservation.roomId;
-      }
-    });
-    var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
-    Object.keys(newMasterRoomsList).map(function(roomId) {
-      var room = newMasterRoomsList[roomId];
-      if (room.id === reservationToAdd.roomId) {
-        room.reservations[reservationToAdd.id] = reservationToAdd;
-      }
-    });
-    this.setState({masterRoomsList: newMasterRoomsList});
   }
 
   render() {
@@ -61,8 +34,7 @@ class App extends React.Component {
             roomsFilter={this.state.roomsFilter} />} />
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.props.masterRoomsList}
-            reservationsRequestsList={this.props.reservationsRequestsList}
-            onSubmitReservationRequest={this.handleSubmitReservationRequest} />} />
+            reservationsRequestsList={this.props.reservationsRequestsList} />} />
         </Switch>
       </div>
     );

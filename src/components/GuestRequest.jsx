@@ -16,8 +16,7 @@ function GuestRequest(props){
       </div>
       <div className="col-md-4">
         <SubmitRequestButton
-          reservationRequest={props.reservationRequest}
-          onSubmitReservationRequest={props.onSubmitReservationRequest}/>
+          reservationRequest={props.reservationRequest} />
         <DeleteRequestButton
           reservationId={props.id}/>
       </div>
@@ -34,8 +33,7 @@ GuestRequest.propTypes = {
   lastDay: PropTypes.string,
   totalPrice: PropTypes.number,
   id: PropTypes.string,
-  reservationRequest: PropTypes.object,
-  onSubmitReservationRequest: PropTypes.func
+  reservationRequest: PropTypes.object
 };
 
 export default GuestRequest;

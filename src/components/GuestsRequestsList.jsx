@@ -18,8 +18,7 @@ function GuestsRequestsList(props){
             totalPrice={reservationRequest.totalPrice}
             id={reservationRequest.id}
             key={reservationRequest.id}
-            reservationRequest={reservationRequest}
-            onSubmitReservationRequest={props.onSubmitReservationRequest} />
+            reservationRequest={reservationRequest} />
         );
       })}
     </div>
@@ -27,8 +26,7 @@ function GuestsRequestsList(props){
 }
 
 GuestsRequestsList.propTypes = {
-  reservationsRequestsList: PropTypes.object,
-  onSubmitReservationRequest: PropTypes.func
+  reservationsRequestsList: PropTypes.object
 };
 
 export default GuestsRequestsList;
