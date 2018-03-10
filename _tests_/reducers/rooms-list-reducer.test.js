@@ -23,7 +23,7 @@ describe('roomsListReducer', () => {
   it('Should successfully update reservation data from specified room', () => {
     let action = {
       type: 'UPDATE_RESERVATION',
-      id: '2',
+      reservationToUpdateId: '2',
       firstDay: '2018-05-02',
       lastDay: '2018-06-04',
       firstName: 'Travis',
@@ -31,15 +31,13 @@ describe('roomsListReducer', () => {
       phone: '555 123 9876',
       roomId: '10'
     };
-    expect((Object.keys((roomsListReducer(initialState.masterRoomsList, action))[1].reservations))[2]).toEqual({
+    expect((((roomsListReducer(initialState.masterRoomsList, action))[10]).reservations)[2]).toEqual({
       id: '2',
       firstDay: '2018-05-02',
       lastDay: '2018-06-04',
       firstName: 'Travis',
       lastName: 'Monroe',
-      phone: '555 123 9876',
-      roomId: '10'});
+      phone: '555 123 9876'
     });
-
-
+  })
 });
