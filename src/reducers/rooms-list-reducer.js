@@ -26,18 +26,23 @@ const roomsListReducer = (state = initialState.masterRoomsList, action) => {
   }
 
   case types.UPDATE_RESERVATION: {
-
-    const { firstDay, lastDay, firstName, lastName, phone, reservationToUpdateId, roomId } = action;
+    let firstDay = action.firstDay;
+    let lastDay = action.lastDay;
+    let firstName = action.firstName;
+    let lastName = action.lastName;
+    let phone = action.phone;
+    let reservationToUpdateId = action.reservationToUpdateId;
+    let currentRoomId = action.roomId;
 
     let newState = Object.assign({}, state);
 
     Object.keys(newState).map(function(roomId) {
       let room = newState[roomId];
-      if (room.id == roomId) {
+      if (room.id == currentRoomId) {
         let reservations = room.reservations;
         Object.keys(reservations).map(function(reservationId) {
           let reservation = reservations[reservationId];
-          if (reservation.id === reservationToUpdateId) {
+          if (reservation.id == reservationToUpdateId) {
             if (firstDay.length > 0) {
               reservation.firstDay = firstDay;
             }
