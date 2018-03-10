@@ -15,7 +15,6 @@ class App extends React.Component {
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
     this.handleSubmitReservationRequest=this.handleSubmitReservationRequest.bind(this);
-    this.handleReservationEdition=this.handleReservationEdition.bind(this);
   }
 
   handleNewFilterCreation(newFilter){
@@ -53,39 +52,6 @@ class App extends React.Component {
     this.handleDeleteReservationRequest(currentReservationId);
   }
 
-  handleReservationEdition(reservationToEdit) {
-    var roomWithReservationToEdit = reservationToEdit.roomId;
-    var newMasterRoomsList = Object.assign({}, this.state.masterRoomsList);
-    Object.keys(newMasterRoomsList).map(function(roomId) {
-      var room = newMasterRoomsList[roomId];
-      if (room.id == roomWithReservationToEdit) {
-        var reservations = room.reservations;
-        Object.keys(reservations).map(function(currentReservationId) {
-          var reservation = reservations[currentReservationId];
-          if (reservation.id === reservationToEdit.reservationToUpdateId) {
-            if (reservationToEdit.firstDay.length > 0) {
-              reservation.firstDay = reservationToEdit.firstDay;
-            }
-            if (reservationToEdit.lastDay.length > 0) {
-              reservation.lastDay = reservationToEdit.lastDay;
-            }
-            if (reservationToEdit.firstName.length > 0) {
-              reservation.firstName = reservationToEdit.firstName;
-            }
-            if (reservationToEdit.lastName.length > 0) {
-              reservation.lastName = reservationToEdit.lastName;
-            }
-            if (reservationToEdit.phone.length > 0) {
-              reservation.phone = reservationToEdit.phone;
-            }
-          }
-        });
-      }
-    });
-    this.setState({masterRoomsList: newMasterRoomsList});
-  }
-
-
   render() {
     return (
       <div className="container">
@@ -97,8 +63,7 @@ class App extends React.Component {
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.props.masterRoomsList}
             reservationsRequestsList={this.props.reservationsRequestsList}
-            onSubmitReservationRequest={this.handleSubmitReservationRequest}
-            onReservationEdition={this.handleReservationEdition} />} />
+            onSubmitReservationRequest={this.handleSubmitReservationRequest} />} />
         </Switch>
       </div>
     );

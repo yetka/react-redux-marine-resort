@@ -18,8 +18,7 @@ function Admin(props){
           <Route exact path='/admin/' render={()=><GuestsRequestsList reservationsRequestsList={props.reservationsRequestsList}
             onSubmitReservationRequest={props.onSubmitReservationRequest}/>} />
           <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit
-            masterRoomsList={props.masterRoomsList}
-            onReservationEdition={props.onReservationEdition} />} />
+            masterRoomsList={props.masterRoomsList} />} />
         </Switch>
       </div>
     </div>
@@ -29,7 +28,6 @@ function Admin(props){
 Admin.propTypes = {
   masterRoomsList: PropTypes.object,
   reservationsRequestsList: PropTypes.object,
-  onReservationEdition: PropTypes.func,
   onSubmitReservationRequest: PropTypes.func
 };
 

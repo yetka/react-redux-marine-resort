@@ -30,8 +30,7 @@ class  Reservation extends React.Component {
           <EditReservationForm
             roomId={this.props.roomId}
             reservationId={this.props.id}
-            onEditReservationFormDoneButtonClick={this.handleEditReservationFormDoneButtonClick}
-            onReservationEdition={this.props.onReservationEdition} />
+            onEditReservationFormDoneButtonClick={this.handleEditReservationFormDoneButtonClick} />
         </div>;
     } else {
       currentlyVisibleContent =
@@ -60,8 +59,7 @@ Reservation.propTypes = {
   lastDay: PropTypes.string,
   lastName: PropTypes.string,
   firstName: PropTypes.string,
-  id: PropTypes.string,
-  onReservationEdition: PropTypes.func,
+  id: PropTypes.string
 };
 
 export default Reservation;

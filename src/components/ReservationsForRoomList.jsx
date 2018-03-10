@@ -16,8 +16,7 @@ function ReservationsForRoomList(props){
             lastDay={reservation.lastDay}
             firstName={reservation.firstName}
             lastName={reservation.lastName}
-            key={reservation.id}
-            onReservationEdition={props.onReservationEdition}/>
+            key={reservation.id} />
         );
       })}
     </div>
@@ -26,8 +25,7 @@ function ReservationsForRoomList(props){
 
 ReservationsForRoomList.propTypes = {
   room: PropTypes.object,
-  id: PropTypes.string,
-  onReservationEdition: PropTypes.func,
+  id: PropTypes.string
 };
 
 export default ReservationsForRoomList;

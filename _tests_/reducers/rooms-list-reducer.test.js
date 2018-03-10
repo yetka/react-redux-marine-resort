@@ -7,23 +7,11 @@ describe('roomsListReducer', () => {
   const { initialState, types } = constants;
   const store = createStore(rootReducer, initialState);
 
-  // let action;
-  // const sampleRoom = {
-  //   name: 'Room1',
-  //   description: 'room description here',
-  //   numberOfGuests: 2,
-  //   seasonPrice: 100,
-  //   offSeasonPrice: 80,
-  //   reservations: {'1': {id: '1', firstDay: '2018-03-02', lastDay: '2018-03-12', firstName: 'John', lastName: 'Smith', phone: '206 123 4567'}, '2': {id: '2', firstDay: '2018-05-02', lastDay: '2018-05-20', firstName: 'Matilda', lastName: 'Doe', phone: '206 123 9876'} },
-  //   id: '1'
-  // };
-
   it('Should return default state if no action type is recognized', () => {
     expect(roomsListReducer(initialState.masterRoomsList, { type: null })).toEqual(initialState.masterRoomsList);
   });
 
-  test('Should successfully remove reservation data from specified room', () => {
-    // const { name, description, numberOfGuests, seasonPrice, offSeasonPrice, reservations, id } = sampleRoom;
+  it('Should successfully remove reservation data from specified room', () => {
     let action = {
       type: 'DELETE_RESERVATION',
       roomId: '1',
@@ -31,6 +19,27 @@ describe('roomsListReducer', () => {
     };
     expect(Object.keys((roomsListReducer(initialState.masterRoomsList, action))[1].reservations)).toEqual(['2']);
   });
+
+  it('Should successfully update reservation data from specified room', () => {
+    let action = {
+      type: 'UPDATE_RESERVATION',
+      id: '2',
+      firstDay: '2018-05-02',
+      lastDay: '2018-06-04',
+      firstName: 'Travis',
+      lastName: 'Monroe',
+      phone: '555 123 9876',
+      roomId: '10'
+    };
+    expect((Object.keys((roomsListReducer(initialState.masterRoomsList, action))[1].reservations))[2]).toEqual({
+      id: '2',
+      firstDay: '2018-05-02',
+      lastDay: '2018-06-04',
+      firstName: 'Travis',
+      lastName: 'Monroe',
+      phone: '555 123 9876',
+      roomId: '10'});
+    });
 
 
 });
