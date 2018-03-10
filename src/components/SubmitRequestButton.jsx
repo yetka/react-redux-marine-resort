@@ -4,7 +4,12 @@ import PropTypes from 'prop-types';
 function SubmitRequestButton(props){
 
   function handleSubmitRequestButtonClick() {
-    props.onSubmitReservationRequest(props.reservationId);
+    const { dispatch } = props;
+    const action = {
+      type: 'ADD_RESERVATION',
+      reservationRequest: props.reservationRequest
+    };
+    dispatch(action);
   }
 
   return (
@@ -15,8 +20,8 @@ function SubmitRequestButton(props){
 }
 
 SubmitRequestButton.propTypes = {
-  reservationId: PropTypes.string,
-  onSubmitReservationRequest: PropTypes.func
+  reservationRequest: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 export default SubmitRequestButton;

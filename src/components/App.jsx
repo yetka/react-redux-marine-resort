@@ -49,7 +49,6 @@ class App extends React.Component {
       }
     });
     this.setState({masterRoomsList: newMasterRoomsList});
-    this.handleDeleteReservationRequest(currentReservationId);
   }
 
   render() {

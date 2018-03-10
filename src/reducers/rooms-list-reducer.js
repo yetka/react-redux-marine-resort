@@ -63,33 +63,34 @@ const roomsListReducer = (state = initialState.masterRoomsList, action) => {
     return newState;
   }
 
-  // case types.ADD_RESERVATION: {
-  //   let roomId = action.roomId;
-  //   let firstName = action.firstName;
-  //   let lastName = action.lastName;
-  //   let phone = action.phone;
-  //   let startDay = action.startDay;
-  //   let endDay = action. '2018-03-03';
-  //   let totalPrice = action. 300;
-  //   let id = action. '123456789';
-  //   let currentRoomId = action.roomId;
-  //   let newState = Object.assign({}, state);
-  //   Object.keys(newState).map(function(roomId) {
-  //     let room = newState[roomId];
-  //     if (room.id == currentRoomId) {
-  //       let reservations = room.reservations;
-  //       let newReservations = {};
-  //       Object.keys(reservations).map(function(reservationId) {
-  //         let reservation = reservations[reservationId];
-  //         if (reservation.id !== currentReservationId) {
-  //           newReservations[reservation.id] = reservation;
-  //         }
-  //       });
-  //       room.reservations = newReservations;
-  //     }
-  //   });
-  //   return newState;
-  // }
+  case types.ADD_RESERVATION: {
+    let reservationRequest = action.reservationRequest;
+    let currentRoomId = reservationRequest.roomId;
+    let firstName = reservationRequest.firstName;
+    let lastName = reservationRequest.lastName;
+    let phone = reservationRequest.phone;
+    let firstDay = reservationRequest.firstDay;
+    let lastDay = reservationRequest.lastDay;
+    let totalPrice = reservationRequest.totalPrice;
+    let id = reservationRequest.id;
+    let newState = Object.assign({}, state);
+    Object.keys(newState).map(function(roomId) {
+      let room = newState[roomId];
+      if (room.id == currentRoomId) {
+        let reservationToAdd = {};
+        reservationToAdd['id'] = id;
+        reservationToAdd['firstDay'] = firstDay;
+        reservationToAdd['lastDay'] = lastDay;
+        reservationToAdd['firstName'] = firstName;
+        reservationToAdd['lastName'] = lastName;
+        reservationToAdd['phone'] = phone;
+        reservationToAdd['totalPrice'] = totalPrice;
+        reservationToAdd['roomId'] = roomId;
+        room.reservations[reservationToAdd.id] = reservationToAdd;
+      }
+    });
+    return newState;
+  }
 
   default:
     return state;

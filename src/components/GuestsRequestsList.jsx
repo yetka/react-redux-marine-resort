@@ -18,6 +18,7 @@ function GuestsRequestsList(props){
             totalPrice={reservationRequest.totalPrice}
             id={reservationRequest.id}
             key={reservationRequest.id}
+            reservationRequest={reservationRequest}
             onSubmitReservationRequest={props.onSubmitReservationRequest} />
         );
       })}
