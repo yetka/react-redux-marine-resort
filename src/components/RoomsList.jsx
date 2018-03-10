@@ -17,8 +17,7 @@ function RoomsList(props){
             reservations={room.reservations}
             id={room.id}
             key={roomId}
-            roomsFilter={props.roomsFilter}
-            onNewReservationRequestCreation={props.onNewReservationRequestCreation} />
+            roomsFilter={props.roomsFilter} />
         );
       })}
     </div>
@@ -27,8 +26,7 @@ function RoomsList(props){
 
 RoomsList.propTypes = {
   masterRoomsList: PropTypes.object,
-  roomsFilter: PropTypes.object,
-  onNewReservationRequestCreation: PropTypes.func
+  roomsFilter: PropTypes.object
 };
 
 export default RoomsList;

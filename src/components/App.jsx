@@ -9,9 +9,8 @@ import PropTypes from 'prop-types';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
-      roomsFilter: {numberOfGuests: null, startDay: null, lastDay: null}
+      roomsFilter: {numberOfGuests: null, startDay: null, endDay: null}
     };
     this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
   }
@@ -20,7 +19,7 @@ class App extends React.Component {
     var newRoomsFilter = {};
     newRoomsFilter['numberOfGuests'] = newFilter.numberOfGuests;
     newRoomsFilter['startDay'] = newFilter.fromDate;
-    newRoomsFilter['lastDay'] = newFilter.toDate;
+    newRoomsFilter['endDay'] = newFilter.toDate;
     this.setState({roomsFilter: newRoomsFilter});
   }
 

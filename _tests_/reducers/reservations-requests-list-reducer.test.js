@@ -18,8 +18,8 @@ describe('reservationsRequestsListReducer', () => {
       firstName: 'Danuta',
       lastName: 'Haniszewska',
       phone: '206 333 4567',
-      startDay: '2018-03-02',
-      endDay: '2018-03-03',
+      firstDay: '2018-03-02',
+      lastDay: '2018-03-03',
       totalPrice: 300,
       id: '444444444444'
     };
@@ -29,8 +29,8 @@ describe('reservationsRequestsListReducer', () => {
         firstName: 'Danuta',
         lastName: 'Haniszewska',
         phone: '206 333 4567',
-        startDay: '2018-03-02',
-        endDay: '2018-03-03',
+        firstDay: '2018-03-02',
+        lastDay: '2018-03-03',
         totalPrice: 300,
         id: '444444444444'
         }

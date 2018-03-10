@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 function Room(props){
   var filterNumberOfGuests = props.roomsFilter.numberOfGuests;
   var filterStartDay = new Date(props.roomsFilter.startDay);
-  var filterEndDay = new Date(props.roomsFilter.lastDay);
+  var filterEndDay = new Date(props.roomsFilter.endDay);
   var currentlyDispayedButton = null;
   if (props.numberOfGuests == filterNumberOfGuests) {
     var reservations = [];
@@ -25,7 +25,7 @@ function Room(props){
     } else {
       currentlyDispayedButton = <BookRoomButton
         startDay={props.roomsFilter.startDay}
-        endDay={props.roomsFilter.lastDay}
+        endDay={props.roomsFilter.endDay}
         seasonPrice={props.seasonPrice}
         offSeasonPrice={props.offSeasonPrice}
         id={props.id} />;

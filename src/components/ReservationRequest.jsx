@@ -65,8 +65,8 @@ function ReservationRequest(props){
       firstName: _firstName.value,
       lastName: _lastName.value,
       phone: _phone.value,
-      startDay: props.startDay,
-      endDay: props.endDay,
+      firstDay: props.startDay,
+      lastDay: props.endDay,
       totalPrice: totalPrice,
       id: v4()
     };

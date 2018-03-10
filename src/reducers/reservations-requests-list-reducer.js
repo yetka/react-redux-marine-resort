@@ -5,15 +5,15 @@ const { initialState, types } = constants;
 const reservationsRequestsListReducer = (state = initialState.reservationsRequestsList, action) => {
   switch (action.type) {
   case types.ADD_RESERVATION_REQUEST: {
-    const { roomId, firstName, lastName, phone, startDay, endDay, totalPrice, id } = action;
+    const { roomId, firstName, lastName, phone, firstDay, lastDay, totalPrice, id } = action;
     let newState = Object.assign({}, state, {
       [id]: {
         roomId: roomId,
         firstName: firstName,
         lastName: lastName,
         phone: phone,
-        startDay: startDay,
-        endDay: endDay,
+        firstDay: firstDay,
+        lastDay: lastDay,
         totalPrice: totalPrice,
         id: id
       }
