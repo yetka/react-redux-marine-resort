@@ -9,7 +9,7 @@ function GuestRequest(props){
       <div className="col-md-8">
         <h2>Request</h2>
         <h5>Room: {props.roomId}</h5>
-        <h5>From: {props.startDay} to: {props.endDay}</h5>
+        <h5>From: {props.firstDay} to: {props.lastDay}</h5>
         <h5>Price: ${props.totalPrice}</h5>
         <h5>Guest: {props.firstName} {props.lastName}</h5>
         <h5>Phone: {props.phone}</h5>
@@ -30,8 +30,8 @@ GuestRequest.propTypes = {
   firstName: PropTypes.string,
   lastName: PropTypes.string,
   phone: PropTypes.string,
-  startDay: PropTypes.string,
-  endDay: PropTypes.string,
+  firstDay: PropTypes.string,
+  lastDay: PropTypes.string,
   totalPrice: PropTypes.number,
   id: PropTypes.string,
   onSubmitReservationRequest: PropTypes.func

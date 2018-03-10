@@ -13,8 +13,8 @@ function GuestsRequestsList(props){
             firstName={reservationRequest.firstName}
             lastName={reservationRequest.lastName}
             phone={reservationRequest.phone}
-            startDay={reservationRequest.startDay}
-            endDay={reservationRequest.endDay}
+            firstDay={reservationRequest.firstDay}
+            lastDay={reservationRequest.lastDay}
             totalPrice={reservationRequest.totalPrice}
             id={reservationRequest.id}
             key={reservationRequest.id}

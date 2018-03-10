@@ -96,8 +96,8 @@ export const initialState = {
       firstName: 'Gosia',
       lastName: 'Haniszewska',
       phone: '206 123 4567',
-      startDay: '2018-03-02',
-      endDay: '2018-03-03',
+      firstDay: '2018-03-02',
+      lastDay: '2018-03-03',
       totalPrice: 300,
       id: '123456789'
     },
@@ -106,8 +106,8 @@ export const initialState = {
       firstName: 'Tomasz',
       lastName: 'Wiszkowski',
       phone: '206 321 4567',
-      startDay: '2018-07-02',
-      endDay: '2018-07-03',
+      firstDay: '2018-07-02',
+      lastDay: '2018-07-03',
       totalPrice: 200,
       id: '987654321'
     }
