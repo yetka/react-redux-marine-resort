@@ -4,34 +4,39 @@ import NotAvailableButton from './NotAvailableButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
+  console.log(props);
   var filterNumberOfGuests = props.roomsFilter.numberOfGuests;
   var filterStartDay = new Date(props.roomsFilter.startDay);
   var filterEndDay = new Date(props.roomsFilter.endDay);
   var currentlyDispayedButton = null;
-  if (props.numberOfGuests == filterNumberOfGuests) {
-    var reservations = [];
-    Object.keys(props.reservations).map(function(reservationId) {
-      var reservation = props.reservations[reservationId];
-      var reservationStartDay = new Date(reservation.firstDay);
-      var reservationEndDay = new Date(reservation.lastDay);
-      if (((filterStartDay < reservationStartDay) && (filterEndDay < reservationEndDay)) || ((filterStartDay > reservationStartDay) && (filterEndDay > reservationEndDay))) {
-        return reservations.push(true);
+  if (filterNumberOfGuests && filterStartDay && filterEndDay) {
+    if (props.numberOfGuests == filterNumberOfGuests) {
+      var reservations = [];
+      Object.keys(props.reservations).map(function(reservationId) {
+        var reservation = props.reservations[reservationId];
+        var reservationStartDay = new Date(reservation.firstDay);
+        var reservationEndDay = new Date(reservation.lastDay);
+        if (((filterStartDay < reservationStartDay) && (filterEndDay < reservationEndDay)) || ((filterStartDay > reservationStartDay) && (filterEndDay > reservationEndDay))) {
+          return reservations.push(true);
+        } else {
+          return reservations.push(false);
+        }
+      });
+      if (reservations.includes(false)) {
+        currentlyDispayedButton = <NotAvailableButton />;
       } else {
-        return reservations.push(false);
+        currentlyDispayedButton = <BookRoomButton
+          startDay={props.roomsFilter.startDay}
+          endDay={props.roomsFilter.endDay}
+          seasonPrice={props.seasonPrice}
+          offSeasonPrice={props.offSeasonPrice}
+          id={props.id} />;
       }
-    });
-    if (reservations.includes(false)) {
-      currentlyDispayedButton = <NotAvailableButton />;
     } else {
-      currentlyDispayedButton = <BookRoomButton
-        startDay={props.roomsFilter.startDay}
-        endDay={props.roomsFilter.endDay}
-        seasonPrice={props.seasonPrice}
-        offSeasonPrice={props.offSeasonPrice}
-        id={props.id} />;
+      currentlyDispayedButton = <NotAvailableButton />;
     }
   } else {
-    currentlyDispayedButton = <NotAvailableButton />;
+    currentlyDispayedButton = null;
   }
   return (
     <div style={{backgroundColor: 'lightGray', margin: '10px', padding: '10px'}} className="row">
