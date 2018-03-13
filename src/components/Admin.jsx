@@ -10,10 +10,10 @@ function Admin(props){
 
   return (
     <div className="row">
-      <div className="col-md-3">
+      <div style={{backgroundColor: 'black', padding: '20px'}} className="col-md-2">
         <AdminNavBar />
       </div>
-      <div className="col-md-9">
+      <div className="col-md-10">
         <Switch>
           <Route exact path='/admin/' render={()=><GuestsRequestsList reservationsRequestsList={props.reservationsRequestsList} />} />
           <Route path='/admin/reservations-to-edit' render={()=><ReservationsToEdit

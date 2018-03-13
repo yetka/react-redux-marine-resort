@@ -4,7 +4,6 @@ import NotAvailableButton from './NotAvailableButton';
 import PropTypes from 'prop-types';
 
 function Room(props){
-  console.log(props);
   var filterNumberOfGuests = props.roomsFilter.numberOfGuests;
   var filterStartDay = new Date(props.roomsFilter.startDay);
   var filterEndDay = new Date(props.roomsFilter.endDay);
@@ -39,7 +38,7 @@ function Room(props){
     currentlyDispayedButton = null;
   }
 
-  
+
   return (
     <div style={{backgroundColor: 'lightGray', margin: '10px', padding: '10px'}} className="row">
       <div className="col-md-8">

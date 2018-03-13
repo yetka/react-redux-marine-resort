@@ -12,7 +12,6 @@ class ReservationsToEdit extends React.Component {
     this.handleReservationsFilterFormSubmission=this.handleReservationsFilterFormSubmission.bind(this);
   }
 
-
   handleReservationsFilterFormSubmission(event) {
     event.preventDefault();
     let roomNumber = this._roomNumber.value;
@@ -28,7 +27,7 @@ class ReservationsToEdit extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleReservationsFilterFormSubmission}>
+        <form style={{backgroundColor: 'lightGray', padding: '15px', magrin: '15px'}} onSubmit={this.handleReservationsFilterFormSubmission}>
           <div className="row">
             <div className="col-md-3">
               <label>Room number: </label>
