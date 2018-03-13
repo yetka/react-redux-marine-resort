@@ -38,6 +38,8 @@ function Room(props){
   } else {
     currentlyDispayedButton = null;
   }
+
+  
   return (
     <div style={{backgroundColor: 'lightGray', margin: '10px', padding: '10px'}} className="row">
       <div className="col-md-8">
