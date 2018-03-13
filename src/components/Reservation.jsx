@@ -5,6 +5,7 @@ import EditReservationForm from './EditReservationForm';
 import PropTypes from 'prop-types';
 
 class  Reservation extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,6 +51,7 @@ class  Reservation extends React.Component {
         {currentlyVisibleContent}
       </div>
     );
+
   }
 }
 
@@ -59,7 +61,8 @@ Reservation.propTypes = {
   lastDay: PropTypes.string,
   lastName: PropTypes.string,
   firstName: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  reservationFilter: PropTypes.object
 };
 
 export default Reservation;
