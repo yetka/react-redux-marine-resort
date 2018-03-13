@@ -10,12 +10,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      roomsFilter: {numberOfGuests: null, startDay: null, endDay: null}
+      roomsFilter: {numberOfGuests: null, startDay: null, endDay: null},
+      reservationFilter: {roomNumber: null, startDay: null, endDay: null}
     };
-    this.handleNewFilterCreation=this.handleNewFilterCreation.bind(this);
+    this.handleNewRoomFilterCreation=this.handleNewRoomFilterCreation.bind(this);
+    this.handleNewReservationFilterCreation=this.handleNewReservationFilterCreation.bind(this);
   }
 
-  handleNewFilterCreation(newFilter){
+  handleNewRoomFilterCreation(newFilter){
     var newRoomsFilter = {};
     newRoomsFilter['numberOfGuests'] = newFilter.numberOfGuests;
     newRoomsFilter['startDay'] = newFilter.fromDate;
@@ -23,17 +25,29 @@ class App extends React.Component {
     this.setState({roomsFilter: newRoomsFilter});
   }
 
+  handleNewReservationFilterCreation(newFilter){
+    var newReservationFilter = {};
+    newReservationFilter['roomNumber'] = newFilter.roomNumber;
+    newReservationFilter['startDay'] = newFilter.fromDate;
+    newReservationFilter['endDay'] = newFilter.toDate;
+    this.setState({reservationFilter: newReservationFilter});
+  }
+
+
   render() {
     return (
       <div className="container">
         <Switch>
           <Route exact path='/' render={()=><Guest
             masterRoomsList={this.props.masterRoomsList}
-            onNewFilterCreation={this.handleNewFilterCreation}
+            onNewFilterCreation={this.handleNewRoomFilterCreation}
             roomsFilter={this.state.roomsFilter} />} />
           <Route path='/admin' render={()=><Admin
             masterRoomsList={this.props.masterRoomsList}
-            reservationsRequestsList={this.props.reservationsRequestsList} />} />
+            reservationsRequestsList={this.props.reservationsRequestsList}
+            reservationFilter={this.state.reservationFilter}
+            onReservationsFilterFormSubmission={this.handleNewReservationFilterCreation}
+          />} />
         </Switch>
       </div>
     );

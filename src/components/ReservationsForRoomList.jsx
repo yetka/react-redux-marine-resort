@@ -11,14 +11,14 @@ function ReservationsForRoomList(props){
           return (
             Object.keys(room.reservations).map(function(reservationId) {
               var reservation = room.reservations[reservationId];
-
               let filterRoomNumber = props.reservationFilter.roomNumber;
-              let filterStartDay = new Date(props.reservationFilter.fromDate);
-              let filterEndDay = new Date(props.reservationFilter.toDate);
+              let filterStartDay = new Date(props.reservationFilter.startDay);
+              let filterEndDay = new Date(props.reservationFilter.endDay);
               let roomNumber = room.id;
               let reservationStartDay = new Date(reservation.firstDay);
               let reservationEndDay = new Date(reservation.lastDay);
               if (roomNumber == filterRoomNumber) {
+
                 if (((filterStartDay >= reservationStartDay) && (filterStartDay <= reservationEndDay)) || ((filterEndDay >= reservationStartDay) && (filterEndDay <= reservationEndDay)) || ((filterStartDay <= reservationStartDay) && (filterEndDay >= reservationEndDay))) {
                   return (
                     <Reservation
@@ -50,7 +50,8 @@ function ReservationsForRoomList(props){
 }
 
 ReservationsForRoomList.propTypes = {
-  masterRoomsList: PropTypes.object
+  masterRoomsList: PropTypes.object,
+  reservationFilter: PropTypes.object
 };
 
 export default ReservationsForRoomList;
