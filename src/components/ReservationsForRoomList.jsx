@@ -28,6 +28,7 @@ function ReservationsForRoomList(props){
                       lastDay={reservation.lastDay}
                       firstName={reservation.firstName}
                       lastName={reservation.lastName}
+                      phone={reservation.phone}
                       reservationFilter={props.reservationFilter}
                       key={reservation.id} />
                   );

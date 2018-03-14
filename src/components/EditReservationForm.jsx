@@ -27,35 +27,35 @@ function EditReservationForm(props){
     props.onEditReservationFormDoneButtonClick();
   }
   return (
-    <div>
+    <div style={{textAlign: 'right'}}>
       <form onSubmit={handleEditReservationFormSubmission}>
         <label> Start Day: </label>
         <input
           type='date'
           id='fromDate'
           placeholder='from date'
-          ref={(input) => {_firstDay = input;}} />
+          ref={(input) => {_firstDay = input;}} /><br></br>
         <label> End Day: </label>
         <input
           type='date'
           id='toDate'
           placeholder='to date'
-          ref={(input) => {_lastDay = input;}} />
+          ref={(input) => {_lastDay = input;}} /><br></br>
         <input
           type='text'
           id='firstName'
           placeholder='firstName'
-          ref={(input) => {_firstName = input;}} />
+          ref={(input) => {_firstName = input;}} /><br></br>
         <input
           type='text'
           id='lastName'
           placeholder='lastName'
-          ref={(input) => {_lastName = input;}} />
+          ref={(input) => {_lastName = input;}} /><br></br>
         <input
           type='text'
           id='phone'
           placeholder='phone'
-          ref={(input) => {_phone = input;}} />
+          ref={(input) => {_phone = input;}} /><br></br>
         <button type='submit'>Done!</button>
       </form>
     </div>

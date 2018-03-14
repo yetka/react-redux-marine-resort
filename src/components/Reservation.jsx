@@ -44,14 +44,20 @@ class  Reservation extends React.Component {
     }
 
     return (
-      <div style={{backgroundColor: 'white', padding: '5px', margin: '5px'}} className="row">
-        <div className="col-md-6">
-          <h6>Start: {this.props.startDay} End: {this.props.lastDay} Guest: {this.props.firstName} {this.props.lastName}</h6>
+      <div>
+        <div style={{backgroundColor: 'white', padding: '5px', margin: '5px'}} className="row">
+          <div className="col-md-6">
+            <h4>Room: {this.props.roomId}</h4>
+            <h6>Start: {this.props.startDay}</h6>
+            <h6>End: {this.props.lastDay}</h6>
+            <h6>Guest: {this.props.firstName} {this.props.lastName}</h6>
+            <h6>Phone: {this.props.phone}</h6>
+          </div>
+          {currentlyVisibleContent}
         </div>
-        {currentlyVisibleContent}
+        <hr></hr>
       </div>
     );
-
   }
 }
 
@@ -61,6 +67,7 @@ Reservation.propTypes = {
   lastDay: PropTypes.string,
   lastName: PropTypes.string,
   firstName: PropTypes.string,
+  phone: PropTypes.string,
   id: PropTypes.string,
   reservationFilter: PropTypes.object
 };
