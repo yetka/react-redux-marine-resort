@@ -37,11 +37,7 @@ describe('reservationsRequestsListReducer', () => {
   })
 
   it('Should successfully remove reservationRequest data from reservationsRequestsList', () => {
-    let action = {
-      type: 'DELETE_RESERVATION_REQUEST',
-      currentReservationRequestId: '987654321'
-    };
-    expect(Object.keys(reservationsRequestsListReducer(initialState.reservationsRequestsList, action))).toEqual(['123456789']);
+    expect(Object.keys(reservationsRequestsListReducer(initialState.reservationsRequestsList, actions.deleteReservationRequest('987654321')))).toEqual(['123456789']);
   });
 
 });

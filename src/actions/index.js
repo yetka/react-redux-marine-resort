@@ -11,3 +11,8 @@ export const addReservationRequest = (roomId, firstName, lastName, phone, firstD
   totalPrice,
   id
 });
+
+export const deleteReservationRequest = (currentReservationRequestId) => ({
+  type: types.DELETE_RESERVATION_REQUEST,
+  currentReservationRequestId
+});
