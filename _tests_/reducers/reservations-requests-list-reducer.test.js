@@ -2,6 +2,7 @@ import reservationsRequestsListReducer from './../../src/reducers/reservations-r
 import constants from "./../../src/constants";
 import { createStore } from 'redux';
 import rootReducer from './../../src/reducers/index';
+import * as actions from './../../src/actions';
 
 describe('reservationsRequestsListReducer', () => {
   const { initialState, types } = constants;
@@ -12,18 +13,15 @@ describe('reservationsRequestsListReducer', () => {
   });
 
   it('Should successfully add new reservationRequest data to reservationsRequestsList', () => {
-    let action = {
-      type: 'ADD_RESERVATION_REQUEST',
-      roomId: '1',
-      firstName: 'Danuta',
-      lastName: 'Haniszewska',
-      phone: '206 333 4567',
-      firstDay: '2018-03-02',
-      lastDay: '2018-03-03',
-      totalPrice: 300,
-      id: '444444444444'
-    };
-    expect(reservationsRequestsListReducer(initialState.reservationsRequestsList, action)).toEqual(Object.assign({},initialState.reservationsRequestsList, {
+    expect(reservationsRequestsListReducer(initialState.reservationsRequestsList, actions.addReservationRequest(
+      '1',
+      'Danuta',
+      'Haniszewska',
+      '206 333 4567',
+      '2018-03-02',
+      '2018-03-03',
+      300,
+      '444444444444'))).toEqual(Object.assign({},initialState.reservationsRequestsList, {
       [444444444444]: {
         roomId: '1',
         firstName: 'Danuta',

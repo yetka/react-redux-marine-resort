@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import { connect } from 'react-redux';
+import { addReservationRequest } from './../actions';
 
 function ReservationRequest(props){
 
@@ -59,18 +60,15 @@ function ReservationRequest(props){
   function handleReservationRequestSubmission(event) {
     const { dispatch } = props;
     event.preventDefault();
-    const action = {
-      type: 'ADD_RESERVATION_REQUEST',
-      roomId: props.roomId,
-      firstName: _firstName.value,
-      lastName: _lastName.value,
-      phone: _phone.value,
-      firstDay: props.startDay,
-      lastDay: props.endDay,
-      totalPrice: totalPrice,
-      id: v4()
-    };
-    dispatch(action);
+    dispatch(addReservationRequest(
+      props.roomId,
+      _firstName.value,
+      _lastName.value,
+      _phone.value,
+      props.startDay,
+      props.endDay,
+      totalPrice,
+      v4()));
     props.onConfirmReservationButtonClick();
   }
 
