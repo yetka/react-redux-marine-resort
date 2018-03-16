@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { updateReservation } from './../actions';
 
 function EditReservationForm(props){
 
@@ -13,17 +14,15 @@ function EditReservationForm(props){
   function handleEditReservationFormSubmission(event) {
     const { dispatch } = props;
     event.preventDefault();
-    const action = {
-      type: 'UPDATE_RESERVATION',
-      firstDay: _firstDay.value,
-      lastDay: _lastDay.value,
-      firstName: _firstName.value,
-      lastName: _lastName.value,
-      phone: _phone.value,
-      reservationToUpdateId: props.reservationId,
-      roomId: props.roomId
-    };
-    dispatch(action);
+    dispatch(updateReservation(
+      props.reservationId,
+      _firstDay.value,
+      _lastDay.value,
+      _firstName.value,
+      _lastName.value,
+      _phone.value,
+      props.roomId
+    ));
     props.onEditReservationFormDoneButtonClick();
   }
   return (

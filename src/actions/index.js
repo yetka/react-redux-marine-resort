@@ -22,3 +22,14 @@ export const deleteReservation = (roomId, reservationId) => ({
   roomId,
   reservationId
 });
+
+export const updateReservation = (reservationToUpdateId, firstDay, lastDay, firstName, lastName, phone, roomId) => ({
+  type: types.UPDATE_RESERVATION,
+  reservationToUpdateId,
+  firstDay,
+  lastDay,
+  firstName,
+  lastName,
+  phone,
+  roomId
+});
