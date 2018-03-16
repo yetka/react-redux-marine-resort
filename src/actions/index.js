@@ -33,3 +33,8 @@ export const updateReservation = (reservationToUpdateId, firstDay, lastDay, firs
   phone,
   roomId
 });
+
+export const addReservation = (reservationRequest) => ({
+  type: types.ADD_RESERVATION,
+  reservationRequest
+});

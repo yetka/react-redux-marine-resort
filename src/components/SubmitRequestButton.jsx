@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { addReservation, deleteReservationRequest } from './../actions';
 
 function SubmitRequestButton(props){
 
   function handleSubmitRequestButtonClick() {
     const { dispatch } = props;
-    const firstAction = {
-      type: 'ADD_RESERVATION',
-      reservationRequest: props.reservationRequest
-    };
-    const secondAction = {
-      type: 'DELETE_RESERVATION_REQUEST',
-      currentReservationRequestId: props.reservationRequest.id
-    };
-    dispatch(firstAction);
-    dispatch(secondAction);
+    dispatch(addReservation(props.reservationRequest));
+    dispatch(deleteReservationRequest(props.reservationRequest.id));
   }
 
   return (

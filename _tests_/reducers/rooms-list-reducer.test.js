@@ -36,22 +36,18 @@ describe('roomsListReducer', () => {
 
 
   it('Should successfully add reservation data to a specified room', () => {
-    let action = {
-      type: 'ADD_RESERVATION',
-      reservationRequest: {
-        roomId: '5',
-        firstName: 'Gosia',
-        lastName: 'Haniszewska',
-        phone: '206 123 4567',
-        firstDay: '2018-03-02',
-        lastDay: '2018-03-03',
-        totalPrice: 300,
-        id: '123456789'
-      }
-
-    };
-    expect((((roomsListReducer(initialState.masterRoomsList, action))[5]).reservations)[123456789]).toEqual({
-      id: '123456789',
+    const reservationRequest = {
+      roomId: '5',
+      firstName: 'Gosia',
+      lastName: 'Haniszewska',
+      phone: '206 123 4567',
+      firstDay: '2018-03-02',
+      lastDay: '2018-03-03',
+      totalPrice: 300,
+      id: '123456789'
+    }
+    expect((((roomsListReducer(initialState.masterRoomsList, actions.addReservation(
+      reservationRequest)))[5]).reservations)[123456789]).toEqual({
       roomId: '5',
       firstName: 'Gosia',
       lastName: 'Haniszewska',
