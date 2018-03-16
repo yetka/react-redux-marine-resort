@@ -16,3 +16,9 @@ export const deleteReservationRequest = (currentReservationRequestId) => ({
   type: types.DELETE_RESERVATION_REQUEST,
   currentReservationRequestId
 });
+
+export const deleteReservation = (roomId, reservationId) => ({
+  type: types.DELETE_RESERVATION,
+  roomId,
+  reservationId
+});
