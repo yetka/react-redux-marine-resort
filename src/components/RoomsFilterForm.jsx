@@ -16,38 +16,78 @@ function RoomsFilterForm(props){
   }
 
   return (
-    <div>
+    <div className="rooms-filter-form">
+      <style jsx global>{`
+        .rooms-filter-form {
+          color: white;
+        }   
+        .guests {
+          float: left;
+          padding: 15px;
+          text-align: center;
+          font-weight: lighter;
+          font-style: italic;
+        }
+        .dates {
+          float: left;
+          padding: 15px;
+          text-align: center;
+          font-weight: lighter;
+          font-style: italic;
+        }
+        .availability-button {
+          float: left;
+          padding: 15px;
+          text-align: center;
+        }
+        .availability-button button {
+          background-color: #9FB998;
+          font-size: 20px;
+          padding: 14px 40px;
+          border-radius: 8px;
+          margin: 5px;
+          border: none;
+          color: white;
+        }
+        .availability-button button:hover {
+          background-color: white;
+          color: black;
+        }
+        input {
+          width: 130px;
+        }
+      `}</style>
       <form onSubmit={handleRoomsFilterFormSubmission}>
-        <div className="row">
-          <div className="col-md-3">
-            <label>Number of Guests: </label>
-            <select ref={(select) => {_numberOfGuests = select;}}>
-              <option value="2">1-2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-          </div>
-          <div className="col-md-4">
-            <label> From: </label>
-            <input
-              type='date'
-              id='fromDate'
-              placeholder='from date'
-              ref={(input) => {_fromDate = input;}} />
-          </div>
-          <div className="col-md-4">
-            <label> To: </label>
-            <input
-              type='date'
-              id='toDate'
-              placeholder='to date'
-              ref={(input) => {_toDate = input;}} />
-          </div>
-          <div className="col-md-1">
-            <button type='submit'>Filter!</button>
-          </div>
+        
+        <div className="guests">
+          <label>Number of Guests: </label><br></br>
+          <select ref={(select) => {_numberOfGuests = select;}}>
+            <option value="2">1-2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
         </div>
+        <div className="dates">
+          <label>Check In: </label><br></br>
+          <input
+            type='date'
+            id='fromDate'
+            placeholder='from date'
+            ref={(input) => {_fromDate = input;}} />
+        </div>
+        <div className="dates">
+          <label>Check Out: </label><br></br>
+          <input
+            type='date'
+            id='toDate'
+            placeholder='to date'
+            ref={(input) => {_toDate = input;}} />
+        </div>
+        <div className="availability-button">
+          <button type='submit'>Check Availability!</button>
+        </div>
+      
       </form>
     </div>
   );
